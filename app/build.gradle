@@ -38,5 +38,5 @@ dependencies {
     implementation 'com.android.support:support-media-compat:28.0.0'
     implementation 'com.android.support:support-v4:28.0.0'
 
-    implementation 'ir.metricx:metricx:0.5.25'
+    implementation 'ir.metricx:metricx:0.2.0'
 }
