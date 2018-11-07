@@ -49,7 +49,7 @@
 ۲. کتاب خانه زیر را در قسمت `dependencies` فایل `gradle` اپلیکیشن خود اضافه کنید:
 <div dir="ltr">
 
-    implementation 'ir.metricx:metricx:0.2.0'
+    implementation 'ir.metricx:metricx:0.3.0'
 </div>
 
 ۳. تنظیمات زیر را به `Proguard` پروژه خود اضافه کنید:  
@@ -87,7 +87,7 @@
   
 <h2 id=integration>راه‌اندازی و پیاده‌سازی sdk در اپلیکیشن اندروید:</h2>
 
-<h3>تنظیمات اولیه در اپلیکیشن:</h3>
+<h3 id=application_setup>تنظیمات اولیه در اپلیکیشن:</h3>
 باید کتابخانه متریکس را در کلاس `Application` اندروید `initialize` کنید. اگر از قبل در پروژه خود کلاس `Application` ندارید به شکل زیر این کلاس را ایجاد کنید:<br>
 ۱. یک کلاس ایجاد کنید که از کلاس `Application` را ارث بری کند:<br>
 
