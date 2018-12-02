@@ -48,7 +48,7 @@
 
 ۲. کتاب خانه زیر را در قسمت `dependencies` فایل `gradle` اپلیکیشن خود اضافه کنید:
 <div dir="ltr">
-    implementation 'ir.metricx:metricx:0.3.1'
+    implementation 'ir.metricx:metricx:0.4.0'
 </div>
 
 ۳. تنظیمات زیر را به `Proguard` پروژه خود اضافه کنید:  
