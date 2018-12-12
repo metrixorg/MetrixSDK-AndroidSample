@@ -1,9 +1,9 @@
-package ir.metricx.sample;
+package ir.metrix.sample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import ir.metricx.analytics.MetricX;
+import ir.metrix.analytics.Metrix;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -12,6 +12,6 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        MetricX.getInstance().newEvent("Create Second Activity");
+        Metrix.getInstance().newEvent("Create Second Activity");
     }
 }

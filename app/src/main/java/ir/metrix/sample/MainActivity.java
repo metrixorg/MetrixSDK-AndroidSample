@@ -1,11 +1,11 @@
-package ir.metricx.sample;
+package ir.metrix.sample;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import ir.metricx.analytics.MetricX;
+import ir.metrix.analytics.Metrix;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MetricX.getInstance().newEvent("Create Main Activity");
+        Metrix.getInstance().newEvent("Create Main Activity");
 
         View btGo = findViewById(R.id.btGo);
         btGo.setOnClickListener(this);

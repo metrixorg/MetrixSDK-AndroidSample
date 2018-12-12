@@ -24,20 +24,22 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
-# Tapsell MetricX
+# Tapsell Metrix
 -keepattributes Signature
 -keepattributes *Annotation*
 -keepattributes EnclosingMethod
 -keepattributes InnerClasses
 # Gson specific classes
 -keep class sun.misc.Unsafe { *; }
--keep class ir.metricx.analytics.gson.stream.** { *; }
--keep class ir.metricx.analytics.gson.** { *; }
+-keep class ir.metrix.analytics.gson.stream.** { *; }
+-keep class ir.metrix.analytics.gson.** { *; }
 -dontwarn sun.misc.**
 
 -keepclassmembers enum * { *; }
 -keep class **.R$* { *; }
--keep interface ir.metricx.analytics.NoProguard
--keep class * implements ir.metricx.analytics.NoProguard { *; }
--keep interface * extends ir.metricx.analytics.NoProguard { *; }
-# End of Tapsell MetricX
+-keep interface ir.metrix.analytics.NoProguard
+-keep class * implements ir.metrix.analytics.NoProguard { *; }
+-keep interface * extends ir.metrix.analytics.NoProguard { *; }
+# End of Tapsell Metrix
+
+-dontwarn com.android.installreferrer.api.**
