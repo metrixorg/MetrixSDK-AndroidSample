@@ -266,7 +266,7 @@
     metrics.put("price", 100000);
     metrics.put("perchase_time", current_time);
 
-    Metrix.getInstance().newEvent("my_event_slug", attributes, metrics);
+    Metrix.getInstance().newEvent("purchase_event_slug", attributes, metrics);
 </div>
 
 ورودی‌های متد newEvent بدین شرح هستند:<br>
