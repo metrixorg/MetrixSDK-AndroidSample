@@ -238,13 +238,13 @@
 </div>
 
 <h3 id=newEvent>۱۳. ساختن یک رویداد سفارشی</h3>
-با استفاده از این تابع می‌توانید یک رویداد سفارشی بسازید.<br>
+با استفاده از این تابع می‌توانید یک رویداد سفارشی بسازید. برای این کار شما در ابتدا باید در داشبورد متریکس از قسمت مدیریت رخدادها، رخداد موردنظر خود را ثبت کنید و نامک (slug) آن را بعنوان نام رخداد در sdk استفاده کنید.<br>
 این تابع را به دو صورت می‌توانید صدا بزنید:<br>
 ۱. یک رویداد سفارشی که فقط یک اسم مشخص دارد بسازید:<br>
 
 <div dir=ltr>
 
-    Metrix.getInstance().newEvent(“my_event");
+    Metrix.getInstance().newEvent(“my_event_slug");
 </div>
 
 ورودی این تابع از جنس String است<br>
@@ -266,7 +266,7 @@
     metrics.put("price", 100000);
     metrics.put("perchase_time", current_time);
 
-    Metrix.getInstance().newEvent("my_event", attributes, metrics);
+    Metrix.getInstance().newEvent("my_event_slug", attributes, metrics);
 </div>
 
 ورودی‌های متد newEvent بدین شرح هستند:<br>
