@@ -116,12 +116,12 @@
         @Override
         public void onCreate() {
             super.onCreate();
-            Metrix.initialize(this, “<API_KEY>”);
+            Metrix.initialize(this, “<APP_ID>”);
         }
     }
 </div>
 
-`API_KEY`: کلید اپلیکیشن شما که از پنل متریکس آن را دریافت می‌کنید.
+`APP_ID`: کلید اپلیکیشن شما که از پنل متریکس آن را دریافت می‌کنید.
 
 <h3 id=about_application_class>در مورد کلاس اپلیکیشن و initialize کردن در این کلاس</h3>
 
