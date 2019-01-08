@@ -43,3 +43,5 @@
 # End of Tapsell Metrix
 
 -dontwarn com.android.installreferrer.api.**
+
+-keep public class com.android.installreferrer.** { *; }
