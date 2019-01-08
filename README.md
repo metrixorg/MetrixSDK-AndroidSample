@@ -1,5 +1,5 @@
 ## MetrixSDK Android Doc
-
+[![CircleCI](https://circleci.com/gh/metrixorg/MetrixSDK-AndroidSample.svg?style=svg)](https://circleci.com/gh/metrixorg/MetrixSDK-AndroidSample)
 <div dir="rtl">
 
 <h2>فهرست</h2>
