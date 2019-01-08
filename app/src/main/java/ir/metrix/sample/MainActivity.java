@@ -5,7 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import ir.metrix.analytics.Metrix;
+import ir.metrix.sdk.Metrix;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

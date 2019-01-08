@@ -3,7 +3,7 @@ package ir.metrix.sample;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import ir.metrix.analytics.Metrix;
+import ir.metrix.sdk.Metrix;
 
 public class SecondActivity extends AppCompatActivity {
 

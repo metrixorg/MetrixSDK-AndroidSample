@@ -2,7 +2,8 @@ package ir.metrix.sample;
 
 import android.app.Application;
 
-import ir.metrix.analytics.Metrix;
+import ir.metrix.sdk.Metrix;
+
 
 public class MetrixApplication extends Application {
 
