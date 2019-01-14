@@ -12,7 +12,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField "String", "METRIX_KEY", "\"iyeeioaxaqvxvji\""
+        buildConfigField "String", "METRIX_KEY", "\"ilhskoifzdmyhhk\""
     }
 
     buildTypes {
