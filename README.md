@@ -63,36 +63,46 @@
     -keepattributes *Annotation*
     -keepattributes EnclosingMethod
     -keepattributes InnerClasses
+
     -keepclassmembers enum * { *; }
     -keep class **.R$* { *; }
-    
-    -dontwarn com.android.installreferrer.api.**
-    
-    -keep public class com.android.installreferrer.** { *; }
-    
     -keep interface ir.metrix.sdk.NoProguard
     -keep class * implements ir.metrix.sdk.NoProguard { *; }
     -keep interface * extends ir.metrix.sdk.NoProguard { *; }
-    
+
     # retrofit
     -keepclassmembers,allowshrinking,allowobfuscation interface * {
         @retrofit2.http.* <methods>;
         }
-    
-    # Ignore JSR 305 annotations for embedding nullability information.
+
     -dontwarn javax.annotation.**
-    
+
+    -dontwarn kotlin.Unit
+
+    -dontwarn retrofit2.-KotlinExtensions
+
+    -if interface * { @retrofit2.http.* <methods>; }
+    -keep,allowobfuscation interface <1>
+
     #OkHttp
     -keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+
     -dontwarn org.codehaus.mojo.animal_sniffer.*
+
     -dontwarn okhttp3.internal.platform.ConscryptPlatform
-    
+
+
+
     #Gson
     -dontwarn sun.misc.**
     -keep class com.google.gson.examples.android.model.** { *; }
+
     -keep class * implements com.google.gson.TypeAdapterFactory
     -keep class * implements com.google.gson.JsonSerializer
     -keep class * implements com.google.gson.JsonDeserializer
+
+    #referral
+    -dontwarn com.android.installreferrer.**
     
 </div>  
   
