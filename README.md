@@ -1,4 +1,5 @@
 
+
 ## MetrixSDK Android Doc
 [![CircleCI](https://circleci.com/gh/metrixorg/MetrixSDK-AndroidSample.svg?style=svg)](https://circleci.com/gh/metrixorg/MetrixSDK-AndroidSample)
 [ ![Download](https://api.bintray.com/packages/metrixorg/maven/metrix-sdk-android/images/download.svg) ](https://bintray.com/metrixorg/maven/metrix-sdk-android/_latestVersion)
@@ -380,15 +381,25 @@
 </div>
 
 مدل `AttributionModel` اطلاعات زیر را در اختیار شما قرار میدهد.
+
 `attributionModel.getAcquisitionAd()` : نام تبلیغ
+
 `attributionModel.getAcquisitionAdSet()`: گروه تبلیغاتی
+
 `attributionModel.getAcquisitionCampaign()`: کمپین تبلیغاتی
+
 `attributionModel.getAcquisitionSource()`: شبکه تبلیغاتی
-`attributionModel.getAttributionStatus()`: وضعیت کاربر در کمپین را مشخص میکند و فقط چهار مقدار زیر را برمیگرداند
-	۱- `ATTRIBUTED` اتربیوت شده
-	۲- `NOT_ATTRIBUTED_YET` هنوز اتربیوت نشده
-	۳- `ATTRIBUTION_NOT_NEEDED` نیاز به اتربیوت ندارد
-	۴- `UNKNOWN` حالت ناشناخته
+
+`attributionModel.getAttributionStatus()`: وضعیت کاربر در کمپین را
+مشخص میکند و فقط چهار مقدار زیر را برمیگرداند
+
+۱- `ATTRIBUTED` اتربیوت شده
+
+۲- `NOT_ATTRIBUTED_YET` هنوز اتربیوت نشده
+
+۳- `ATTRIBUTION_NOT_NEEDED` نیاز به اتربیوت ندارد
+
+۴- `UNKNOWN` حالت ناشناخته
 
 
 
