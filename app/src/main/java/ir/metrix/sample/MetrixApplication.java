@@ -3,6 +3,8 @@ package ir.metrix.sample;
 import android.app.Application;
 
 import ir.metrix.sdk.Metrix;
+import ir.metrix.sdk.OnAttributionChangedListener;
+import ir.metrix.sdk.network.AttributionModel;
 
 
 public class MetrixApplication extends Application {
@@ -13,5 +15,12 @@ public class MetrixApplication extends Application {
 
         Metrix.initialize(this, BuildConfig.METRIX_KEY);
         Metrix.getInstance().setScreenFlowsAutoFill(true);
+        Metrix.getInstance().setOnAttributionChangedListener(new OnAttributionChangedListener() {
+            @Override
+            public void onAttributionChanged(AttributionModel attributionModel) {
+
+
+            }
+        });
     }
 }
