@@ -1,5 +1,6 @@
 
 
+
 ## MetrixSDK Android Doc
 [![CircleCI](https://circleci.com/gh/metrixorg/MetrixSDK-AndroidSample.svg?style=svg)](https://circleci.com/gh/metrixorg/MetrixSDK-AndroidSample)
 [ ![Download](https://api.bintray.com/packages/metrixorg/maven/metrix-sdk-android/images/download.svg) ](https://bintray.com/metrixorg/maven/metrix-sdk-android/_latestVersion)
@@ -56,7 +57,18 @@
     implementation 'ir.metrix:metrix:0.8.0'
 </div>
 
-۳. تنظیمات زیر را به `Proguard` پروژه خود اضافه کنید:
+۳. آپشن زیر را به `android` فایل `gradle` اپلیکیشن خود اضافه کنید:
+
+<div dir="ltr">
+
+    compileOptions {
+        targetCompatibility = "8"
+        sourceCompatibility = "8"
+    }
+</div>
+
+
+۴. تنظیمات زیر را به `Proguard` پروژه خود اضافه کنید:
 
 <div dir=ltr>
 
@@ -119,7 +131,7 @@
 
 </div>
 
-۴. برای کتابخانه `Metrix` لازم است تا دسترسی‌های زیر را به فایل `AndroidManifest.xml` اضافه کنید:
+۵. برای کتابخانه `Metrix` لازم است تا دسترسی‌های زیر را به فایل `AndroidManifest.xml` اضافه کنید:
 
 <div dir=ltr>
 
@@ -376,7 +388,7 @@
     @Override
       public void onAttributionChanged(AttributionModel attributionModel) {
           //TODO
-	    }
+  }
     });
 </div>
 

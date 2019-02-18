@@ -14,7 +14,10 @@ android {
 
         buildConfigField "String", "METRIX_KEY", "\"ilhskoifzdmyhhk\""
     }
-
+    compileOptions {
+        targetCompatibility = "8"
+        sourceCompatibility = "8"
+    }
     buildTypes {
         debug {
             minifyEnabled false
