@@ -53,7 +53,7 @@
 ۲. کتاب خانه زیر را در قسمت `dependencies` فایل `gradle` اپلیکیشن خود اضافه کنید:
 <div dir="ltr">
 
-    implementation 'ir.metrix:metrix:0.7.3'
+    implementation 'ir.metrix:metrix:0.8.0'
 </div>
 
 ۳. تنظیمات زیر را به `Proguard` پروژه خود اضافه کنید:
