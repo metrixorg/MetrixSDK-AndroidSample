@@ -57,7 +57,7 @@
     implementation 'ir.metrix:metrix:0.8.0'
 </div>
 
-۳. آپشن زیر را به `android` فایل `gradle` اپلیکیشن خود اضافه کنید:
+۳. آپشن زیر را به بلاک `android` فایل `gradle` اپلیکیشن خود اضافه کنید:
 
 <div dir="ltr">
 
