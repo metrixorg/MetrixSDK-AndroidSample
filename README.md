@@ -40,13 +40,15 @@
 ۱. ابتدا تنظیمات زیر را در قسمت `repositories` فایل `gradle` کل پروژه اضافه کنید:
 
 <div dir="ltr">
+    
+    allprojects{
+        repositories {
 
-    repositories {
+        ...
 
-    ...
-
-        maven {
-            url 'https://dl.bintray.com/metrixorg/maven'
+            maven {
+                url 'https://dl.bintray.com/metrixorg/maven'
+            }
         }
     }
 </div>
