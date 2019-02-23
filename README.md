@@ -1,6 +1,3 @@
-
-
-
 ## MetrixSDK Android Doc
 [![CircleCI](https://circleci.com/gh/metrixorg/MetrixSDK-AndroidSample.svg?style=svg)](https://circleci.com/gh/metrixorg/MetrixSDK-AndroidSample)
 [ ![Download](https://api.bintray.com/packages/metrixorg/maven/metrix-sdk-android/images/download.svg) ](https://bintray.com/metrixorg/maven/metrix-sdk-android/_latestVersion)
@@ -40,7 +37,7 @@
 ۱. ابتدا تنظیمات زیر را در قسمت `repositories` فایل `gradle` کل پروژه اضافه کنید:
 
 <div dir="ltr">
-    
+
     allprojects{
         repositories {
 
@@ -390,7 +387,7 @@
     @Override
       public void onAttributionChanged(AttributionModel attributionModel) {
           //TODO
-  }
+        }
     });
 </div>
 
