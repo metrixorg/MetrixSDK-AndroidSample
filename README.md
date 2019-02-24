@@ -348,7 +348,7 @@
     Map<String, String> attributes = new HashMap<>();
     attributes.put("manufacturer", "Nike");
 
-    Metrix.getInstance().setUserAttributes(attributes);
+    Metrix.getInstance().addUserAttributes(attributes);
 </div>
 
 <h3 id=setUserMetrics>۱۶. مشخص کردن Metricsهای پیش‌فرض همه‌ی رویدادها</h3>
