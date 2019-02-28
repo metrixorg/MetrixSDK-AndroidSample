@@ -326,7 +326,7 @@
 
     Map<String, Object> metrics = new HashMap<>();
     metrics.put("price", 100000);
-    metrics.put("perchase_time", current_time);
+    metrics.put("purchase_time", current_time);
 
     Metrix.getInstance().newEvent("purchase_event_slug", attributes, metrics);
 </div>
@@ -359,7 +359,7 @@
 <div dir=ltr>
 
     Map<String, Object> metrics = new HashMap<>();
-    metrics.put("perchase_time", current_time);
+    metrics.put("purchase_time", current_time);
 
     Metrix.getInstance().setUserMetrics(metrics);
 </div>
