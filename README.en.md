@@ -8,29 +8,29 @@
 <h2>Table of contents</h2>
 <a href=#project_setup>1. Basic integration</a><br>
 <a href=#integration>2. Add the SDK to your project</a><br>
-<a style="padding-right:2em" href=#application_setup>2.1. Initial configuration in the app</a><br>
-<a style="padding-right:2em" href=#about_application_class>2.2. About the application class and initialization in this class</a><br>
+ <a style="padding-left:2em" href=#application_setup>2.1. Initial configuration in the app</a><br>
+ <a style="padding-left:2em" href=#about_application_class>2.2. About the application class and initialization in this class</a><br>
 <a href=#methods>3. Additional features</a><br>
-<a style="padding-right:2em" href=#session_event_description>3.1. Explain the concepts of event and session</a><br>
-<a style="padding-right:2em" href=#enableLocationListening>3.2. Enable location listening</a><br>
-<a style="padding-right:2em" href=#setEventUploadThreshold>3.3. Limitation in number of events to upload</a><br>
-<a style="padding-right:2em" href=#setEventUploadMaxBatchSize>3.4. Limitation in number of events to send per request</a><br>
-<a style="padding-right:2em" href=#setEventMaxCount>3.5. Limitation in number of events to buffer on the device</a><br>
-<a style="padding-right:2em" href=#setEventUploadPeriodMillis>3.6. The time interval for sending events</a><br>
-<a style="padding-right:2em" href=#setSessionTimeoutMillis>3.7. The session timeout</a><br>
-<a style="padding-right:2em" href=#setOptOut>3.8. Disable tracking</a><br>
-<a style="padding-right:2em" href=#enableLogging>3.9. Log management</a><br>
-<a style="padding-right:2em" href=#setLogLevel>3.10. Set LogLevel</a><br>
-<a style="padding-right:2em" href=#setOffline>3.11. Offline mode</a><br>
-<a style="padding-right:2em" href=#setFlushEventsOnClose>3.12. Flush all events</a><br>
-<a style="padding-right:2em" href=#getSessionNum>3.13. Current session number</a><br>
-<a style="padding-right:2em" href=#newEvent>3.14. Custom event</a><br>
-<a style="padding-right:2em" href=#setUserAttributes>3.15. Specify the default attributes for user</a><br>
-<a style="padding-right:2em" href=#setUserMetrics>3.16. Specify the default metrics for user</a><br>
-<a style="padding-right:2em" href=#setScreenFlowsAutoFill>3.17. Enable the process of storing the user flow</a><br>
-<a style="padding-right:2em" href=#isScreenFlowsAutoFill>3.18. Find out the value of screenFlow</a><br>
-<a style="padding-right:2em" href=#setAttributionListener>3.19. Get User attribution</a><br>
-<a style="padding-right:2em" href=#setDefaultTracker>3.20. Pre-installed trackers</a><br>
+ <a style="padding-left:2em" href=#session_event_description>3.1. Explain the concepts of event and session</a><br>
+ <a style="padding-left:2em" href=#enableLocationListening>3.2. Enable location listening</a><br>
+<a style="padding-left:2em" href=#setEventUploadThreshold>3.3. Limitation in number of events to upload</a><br>
+<a style="padding-left:2em" href=#setEventUploadMaxBatchSize>3.4. Limitation in number of events to send per request</a><br>
+<a style="padding-left:2em" href=#setEventMaxCount>3.5. Limitation in number of events to buffer on the device</a><br>
+<a style="padding-left:2em" href=#setEventUploadPeriodMillis>3.6. The time interval for sending events</a><br>
+<a style="padding-left:2em" href=#setSessionTimeoutMillis>3.7. The session timeout</a><br>
+<a style="padding-left:2em" href=#setOptOut>3.8. Disable tracking</a><br>
+<a style="padding-left:2em" href=#enableLogging>3.9. Log management</a><br>
+<a style="padding-left:2em" href=#setLogLevel>3.10. Set LogLevel</a><br>
+<a style="padding-left:2em" href=#setOffline>3.11. Offline mode</a><br>
+<a style="padding-left:2em" href=#setFlushEventsOnClose>3.12. Flush all events</a><br>
+<a style="padding-left:2em" href=#getSessionNum>3.13. Current session number</a><br>
+<a style="padding-left:2em" href=#newEvent>3.14. Custom event</a><br>
+<a style="padding-left:2em" href=#setUserAttributes>3.15. Specify the default attributes for user</a><br>
+<a style="padding-left:2em" href=#setUserMetrics>3.16. Specify the default metrics for user</a><br>
+<a style="padding-left:2em" href=#setScreenFlowsAutoFill>3.17. Enable the process of storing the user flow</a><br>
+<a style="padding-left:2em" href=#isScreenFlowsAutoFill>3.18. Find out the value of screenFlow</a><br>
+<a style="padding-left:2em" href=#setAttributionListener>3.19. Get User attribution</a><br>
+<a style="padding-left:2em" href=#setDefaultTracker>3.20. Pre-installed trackers</a><br>
 
 
 
