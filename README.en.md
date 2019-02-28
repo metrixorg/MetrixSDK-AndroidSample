@@ -328,7 +328,7 @@ The input of this function is String.<br>
 
     Map<String, Object> metrics = new HashMap<>();
     metrics.put("price", 100000);
-    metrics.put("perchase_time", current_time);
+    metrics.put("purchase_time", current_time);
 
     Metrix.getInstance().newEvent("purchase_event_slug", attributes, metrics);
 </div>
@@ -360,7 +360,7 @@ Using this function, you can add arbitrary `Metrics` to all events of the user:<
 <div dir=ltr>
 
     Map<String, Object> metrics = new HashMap<>();
-    metrics.put("perchase_time", current_time);
+    metrics.put("purchase_time", current_time);
 
     Metrix.getInstance().setUserMetrics(metrics);
 </div>
@@ -417,7 +417,7 @@ Here is a quick summary of `AttributionModel` properties: <br>
 
 <h3 id=setDefaultTracker>Pre-installed trackers</h3>
 
-If you want to use the Metrix SDK to recognize users whose devices came with your app pre-installed, open your app delegate and add set the default tracker of your config. Replace `trackerToken` with the tracker token you created in dashboard. Please note that the Dashboard displays a tracker URL (including http://tracker.metrix.ir/). In your source code, you should specify only the six-character token and not the entire URL. <br>
+If you want to use the Metrix SDK to recognize users whose devices came with your app pre-installed, open your app delegate and set the default tracker of your config. Replace `trackerToken` with the tracker token you created in dashboard. Please note that the Dashboard displays a tracker URL (including http://tracker.metrix.ir/). In your source code, you should specify only the six-character token and not the entire URL. <br>
 <div dir=ltr>
 
     Metrix.getInstance().setDefaultTracker(trackerToken);
