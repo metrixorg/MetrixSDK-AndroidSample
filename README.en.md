@@ -14,8 +14,8 @@
 <a style="padding-right:2em" href=#session_event_description>3.1. Explain the concepts of event and session</a><br>
 <a style="padding-right:2em" href=#enableLocationListening>3.2. Enable location listening</a><br>
 <a style="padding-right:2em" href=#setEventUploadThreshold>3.3. The maximum number of upload events</a><br>
-<a style="padding-right:2em" href=#setEventUploadMaxBatchSize>3.4. The maximum number of events send per batch request</a><br>
-<a style="padding-right:2em" href=#setEventMaxCount>3.5. The maximum number of event store on the device</a><br>
+<a style="padding-right:2em" href=#setEventUploadMaxBatchSize>3.4. The maximum number of send events per batch request</a><br>
+<a style="padding-right:2em" href=#setEventMaxCount>3.5. The maximum number of buffer events on the device</a><br>
 <a style="padding-right:2em" href=#setEventUploadPeriodMillis>3.6. The time interval for sending events</a><br>
 <a style="padding-right:2em" href=#setSessionTimeoutMillis>3.7. The session timeout</a><br>
 <a style="padding-right:2em" href=#setOptOut>3.8. Disable tracking</a><br>
@@ -58,7 +58,7 @@
     implementation 'ir.metrix:metrix:0.8.0'
 </div>
 
-3. Add the following option to the `android` block of your application's `gradle`:
+3. Add the following option to the block `android` of your application's `gradle`:
 
 <div dir="ltr">
 
@@ -148,7 +148,7 @@
 
 <h3 id=application_setup>Initial configuration in the app</h3>
 
-You need to initialize the Metrix SDK in the `onCreate` method of your `Application`. If you do not already have a `Application` class in your project, create this class as below:<br>
+You need to initialize the Metrix SDK in the method `onCreate` of your `Application`. If you do not already have a class `Application` in your project, create this class as below:<br>
 1. Create a class that inherits from the `Application`:<br>
 
 <img src="https://storage.backtory.com/tapsell-server/metrix/doc/screenshots/Metrix-Application-Class.png"/>
@@ -201,7 +201,7 @@ There are three types of events in the Metrix:<br>
 <br>
 
 <h3 id=enableLocationListening>Enable location listening</h3>
-می‌توانید با استفاده از دو تابع زیر به کتابخانه متریکس اعلام کنید که در رویدادها اطلاعات مربوط به مکان کاربر را به همراه دیگر اطلاعات ارسال کند یا نکند. (برای اینکه این متد به درستی عمل کند دسترسی‌های اختیاری که بالاتر ذکر شد باید فعال باشند)<br>
+You can declare to Metrix to send information about the location of the user using the following functions. (In order to these method work properly, the optional permissions must be enabled) <br>
 <div dir=ltr>
 
     Metrix.getInstance().enableLocationListening();
@@ -210,108 +210,111 @@ There are three types of events in the Metrix:<br>
 </div>
 
 <h3 id=setEventUploadThreshold>The maximum number of upload events</h3>
-با استفاده از تابع زیر می‌توانید مشخص کنید که هر موقع تعداد رویدادهای ذخیره شده شما به تعداد مورد نظر شما رسید کتابخانه رویدادها را برای سرور ارسال کند:<br>
+Using the following function, you can specify that each time the number of your buffered events reaches the ththreshold, SDK should send them to the server:<br>
 <div dir=ltr>
 
     Metrix.getInstance().setEventUploadThreshold(50);
 </div>
-(مقدار پیش‌فرض این تابع در کتابخانه ۳۰ رویداد است.)<br>
+(The default value is 30 events.)<br>
 
-<h3 id=setEventUploadMaxBatchSize>۴. تعیین حداکثر تعداد رویداد ارسالی در هر درخواست</h3>
-با استفاده از این تابع می‌توانید حداکثر تعداد رویداد ارسالی در هر درخواست را به شکل زیر مشخص کنید:<br>
+<h3 id=setEventUploadMaxBatchSize>The maximum number of send events per batch request</h3>
+Using this function, you can specify the maximum number of outcoming events per request as shown below:<br>
 <div dir=ltr>
 
     Metrix.getInstance().setEventUploadMaxBatchSize(100);
 </div>
-(مقدار پیش‌فرض این تابع در کتابخانه ۱۰۰ رویداد است.)<br>
+(The default value is 100 events.)<br>
 
-<h3 id=setEventMaxCount>۵. تعیین تعداد حداکثر ذخیره رویداد در مخزن کتابخانه</h3>
-با استفاده از تابع زیر می‌توانید مشخص کنید که حداکثر تعداد رویدادهای ذخیر شده در کتابخانه متریکس چقدر باشد (به عنوان مثال اگر دستگاه کاربر اتصال خود به اینترنت را از دست داد رویدادها تا مقداری که شما مشخص می‌کنید در کتابخانه ذخیره خواهند شد) و اگر تعداد رویدادهای ذخیره شده در کتابخانه از این مقدار بگذرد رویدادهای قدیمی توسط sdk نگهداری نشده و از بین می‌روند:<br>
+<h3 id=setEventMaxCount>The maximum number of buffer events on the device</h3>
+Using the following function, you can specify how much the maximum number of events bufferd in the SDK (for example, if the user device lost its internet connection, the events will be stored in the library as the amount of you specify) and if the number of events buffered in the library pass this amount. Old events are not kept and destroyed by SDK:<br>
 <div dir=ltr>
 
     Metrix.getInstance().setEventMaxCount(1000);
 </div>
-(مقدار پیش‌فرض این تابع در کتابخانه ۱۰۰۰ رویداد است.)<br>
+(The default value is 100 events.)<br>
 
-<h3 id=setEventUploadPeriodMillis>۶. تعیین بازه زمانی ارسال رویدادها به سمت سرور</h3>
-با استفاده از این تابع می‌توانید مشخص کنید که درخواست آپلود رویدادها بعد از گذشت چند میلی‌ثانیه فرستاده شود:<br>
+<h3 id=setEventUploadPeriodMillis>The time interval for sending events</h3>
+By using this function, you can specify that the request to upload events after a few seconds is sent: <br>
 <div dir=ltr>
 
     Metrix.getInstance().setEventUploadPeriodMillis(30000);
 </div>
-(مقدار پیش‌فرض این تابع در کتابخانه ۳۰ ثانیه است.)<br>
+(The default value is 30 seconds.)<br>
 
-<h3 id=setSessionTimeoutMillis>۷. تعیین بازه زمانی دلخواه برای نشست‌ها</h3>
-با استفاده از این تابع می‌توانید حد نشست‌ها را در اپلیکیشن خود مشخص کنید که هر نشست حداکثر چند ثانیه محاسبه شود. به عنوان مثال اگر مقدار این تابع را ۱۰۰۰۰ وارد کنید اگر کاربر در اپلیکیشن ۷۰ ثانیه تعامل داشته باشد، کتابخانه متریکس این تعامل را ۷ نشست محاسبه می‌کند.<br>
+<h3 id=setSessionTimeoutMillis>The session timeout</h3>
+Using this function, you can specify the limit of session lengthes in your application. For example, if the value of this function is 10,000, if the user interacts with the application in 70 seconds, the Metrix calculates this interaction in seven sessions.<br>
 <div dir=ltr>
 
     Metrix.getInstance().setSessionTimeoutMillis(1800000);
 </div>
-(مقدار پیش‌فرض این تابع در کتابخانه ۳۰ دقیقه است.)<br>
+(The default value is 30 minutes.)<br>
 
-<h3 id=setOptOut>۸. دستور عمل نکردن کل کتابخانه</h3>
-با استفاده از این تابع می‌توانید به کتابخانه دستور بدهید که هیچ رویدادی را ثبت نکند:<br>
+<h3 id=setOptOut>Disable tracking</h3>
+Using this function, you can command the library to not record any events:<br>
 <div dir=ltr>
 
     Metrix.getInstance().setOptOut(true);
 </div>
-(مقدار پیش‌فرض این تابع در کتابخانه false است.)<br>
+(The default value is false.)<br>
 
-<h3 id=enableLogging>۹. فعال کردن مدیریت لاگ‌ها کتابخانه متریکس</h3>
-توجه داشته باشید که موقع release اپلیکیشن خود مقدار این تابع را false قرار دهید:<br>
+<h3 id=enableLogging>Log management</h3>
+Note that setting the value of this value, false during the release of your application:<br>
 <div dir=ltr>
 
     Metrix.getInstance().enableLogging(true);
 </div>
-(مقدار پیش‌فرض این تابع در کتابخانه true است.)<br>
+(The default value is true.)<br>
 
-<h3 id=setLogLevel>۱۰. تعیین LogLevel</h3>
+<h3 id=setLogLevel>Set LogLevel</h3>
 
-با استفاده از این تابع می‌توانید مشخص کنید که چه سطحی از لاگ‌ها در `logcat` چاپ شود، به عنوان مثال دستور زیر همه‌ی سطوح لاگ‌ها به جز `VERBOSE` در `logcat` نمایش داده شود:<br>
+Using this function you can specify what level of logs to be printed in `logcat`, for example, the following command will display all logs except `VERBOSE` in `logcat`:<br>
 <div dir=ltr>
 
     Metrix.getInstance().setLogLevel(Log.DEBUG);
 </div>
 
-(مقدار پیش‌فرض این تابع در کتابخانه `Log.INFO` است.)<br>
+(The default value is `Log.INFO`.)<br>
 
-<h3 id=setOffline>۱۱. روشن کردن حالت آفلاین کتابخانه</h3>
-با استفاده از این تابع کتابخانه رویدادها را برای سرور ارسال نمی‌کند اما همچنان رویدادها را با تنظیمات دلخواه شما ثبت می‌کند:<br>
+<h3 id=setOffline>Offline mode</h3>
+Using this function, the SDK does not send events to the server, but still records events with your preferences:<br>
 <div dir=ltr>
 
     Metrix.getInstance().setOffline(true);
 </div>
-(مقدار پیش‌فرض این تابع در کتابخانه false است.)<br>
+(The default value is false.)<br>
 
-<h3 id=setFlushEventsOnClose>۱۲. فعال یا غیرفعال کردن ارسال همه‌ی رویدادها</h3>
-با استفاده از این تابع می‌توانید مشخص کنید که زمانی که اپلیکیشن بسته می‌شود همه رویدادهای ذخیره شده در کتابخانه ارسال شود یا نشود:<br>
+<h3 id=setFlushEventsOnClose>Flush all events</h3>
+Using this function, you can specify that when the application is closed, all events buffered in the device, should be sent or not:
+<br>
 <div dir=ltr>
 
     Metrix.getInstance().setFlushEventsOnClose(false);
 </div>
-(مقدار پیش‌فرض این تابع در کتابخانه true است.)<br>
+(The default value is true.)<br>
 
-<h3 id=getSessionNum>۱۳. اطلاع یافتن از شماره نشست جاری</h3>
-با استفاده از این تابع می‌توانید از شماره نشست (session)  جاری اطلاع پیدا کنید:<br>
+<h3 id=getSessionNum>Current session number</h3>
+By this function, you can find the current session number:<br>
 <div dir=ltr>
 
     Metrix.getInstance().getSessionNum();
 </div>
 
-<h3 id=newEvent>۱۴. ساختن یک رویداد سفارشی</h3>
-با استفاده از این تابع می‌توانید یک رویداد سفارشی بسازید. برای این کار شما در ابتدا باید در داشبورد متریکس از قسمت مدیریت رخدادها، رخداد موردنظر خود را ثبت کنید و نامک (slug) آن را بعنوان نام رخداد در sdk استفاده کنید.<br>
-این تابع را به دو صورت می‌توانید صدا بزنید:<br>
-۱. یک رویداد سفارشی که فقط یک اسم مشخص دارد بسازید:<br>
+<h3 id=newEvent>Custom event</h3>
+
+You can use Metrix to track any event in your app. Suppose you want to track every tap on a button. You would have to create a new event slug in the Events Management section of your dashboard. Let's say that event slug is `abc123`. In your button's onClick method you could then add the following lines to track the click.
+<br>
+You can call this function in two ways:<br>
+1. Make a custom event that has only one specified name:<br>
 
 <div dir=ltr>
 
-    Metrix.getInstance().newEvent(“my_event_slug");
+    Metrix.getInstance().newEvent(“abc123");
 </div>
 
-ورودی این تابع از جنس String است<br>
+The input of this function is String.<br>
 <br>
 
-۲. یک رویداد سفارشی با تعداد دلخواه attribute و metric خاص سناریو خود بسازید، به عنوان مثال فرض کنید در یک برنامه خرید آنلاین می‌خواهید یک رویداد سفارشی بسازید:<br>
+2. Create a custom event with a specific numbers of attributes and metrics, for example, suppose you want to create a custom event in an online purchase program:<br>
 
 <div dir=ltr>
 
@@ -330,10 +333,10 @@ There are three types of events in the Metrix:<br>
     Metrix.getInstance().newEvent("purchase_event_slug", attributes, metrics);
 </div>
 
-ورودی‌های متد newEvent بدین شرح هستند:<br>
-- <b>ورودی اول:</b> نامک رویداد مورد نظر شما که از جنس String است و آن را از داشبورد متریکس دریافت می‌کنید.<br>
-- <b>ورودی دوم:</b> یک Map<String, String> که ویژگی‌های یک رویداد را مشخص می‌کند.<br>
-- <b>ورودی سوم:</b> یک Map<String, Object> که شامل ویژگی‌های قابل اندازه گیری هستند. مقادیر پشتیبانی شده در کتابخانه متریکس یکی از مقادیر <br>زیر است:
+The variables for the `newEvent` method are as follows:<br>
+- <b>First variable:</b>The event slug which is String type and you get it from the Metrix dashboard.<br>
+- <b>Second variable:</b> A Map `<String, String>` that specifies the attributes of an event.<br>
+- <b>Third variable:</b> A Map `<String, Object>` that contains measurable metrics. Supported values in the MetriX are one of the following values:
     1. Integer
     2. Float
     3. Double
@@ -341,9 +344,8 @@ There are three types of events in the Metrix:<br>
     5. Sting
     6. Boolean
 
-<h3 id=setUserAttributes>۱۵. مشخص کردن Attribute‌های پیش‌فرض همه‌ی رویدادها</h3>
-
-با استفاده از این تابع می‌توانید به تعداد دلخواه `Attribute` به همه‌ی رویدادهای خود اضافه کنید:<br>
+<h3 id=setUserAttributes>Specify the default attributes for user</h3>
+Using this function, you can add arbitrary `Attributes` to all events of the user:<br>
 <div dir=ltr>
 
     Map<String, String> attributes = new HashMap<>();
@@ -352,9 +354,9 @@ There are three types of events in the Metrix:<br>
     Metrix.getInstance().addUserAttributes(attributes);
 </div>
 
-<h3 id=setUserMetrics>۱۶. مشخص کردن Metricsهای پیش‌فرض همه‌ی رویدادها</h3>
+<h3 id=setUserMetrics>Specify the default metrics for user</h3>
 
-با استفاده از این تابع می‌توانید به تعداد دلخواه `Metric` به همه‌ی رویدادهای خود اضافه کنید:<br>
+Using this function, you can add arbitrary `Metrics` to all events of the user:<br>
 <div dir=ltr>
 
     Map<String, Object> metrics = new HashMap<>();
@@ -363,25 +365,24 @@ There are three types of events in the Metrix:<br>
     Metrix.getInstance().setUserMetrics(metrics);
 </div>
 
-<h3 id=setScreenFlowsAutoFill>۱۷. فعال کردن فرآیند نگهداری حرکت کاربر بین صفحات مختلف در اپلیکیشن</h3>
+<h3 id=setScreenFlowsAutoFill>Enable the process of storing the user flow</h3>
 
-با استفاده از این تابع می‌توانید به کتابخانه متریکس اطلاع بدهید که تشخیص بدهد کاربر از کدام `Activity`/`Fragment` به کدام `Activity`/`Fragment` می‌رود و این داده‌ها را به صورت اتوماتیک ذخیره کند:<br>
+Using this function, you can inform the Metrix to gather information about user's flow in each `Activity`/`Fragment` and these details should be stored automatically:<br>
 <div dir=ltr>
 
     Metrix.getInstance().setScreenFlowsAutoFill(true);
 </div>
-(مقدار پیش‌فرض این تابع در کتابخانه false است.)<br>
+(The default value is false.)<br>
 
-<h3 id=isScreenFlowsAutoFill>۱۸. اطلاع یافتن از مقدار screenFlow در کتابخانه</h3>
-با استفاده از این تابع می‌توانید متوجه شوید که مقدار `screenFlow` در کتابخانه متریکس چیست:<br>
+<h3 id=isScreenFlowsAutoFill>Find out the value of screenFlow</h3>
+Using this function, you can see that what the `screenFlow` value in the Metrix is:<br>
 <div dir=ltr>
 
     Metrix.getInstance().isScreenFlowsAutoFill();
 </div>
 
-<h3 id=setAttributionListener>۱۹. دریافت اطلاعات کمپین</h3>
-
-با مقداردهی این تابعه میتوانید اطلاعات کمپین تبلیغاتی که در ترکر خود در پنل قرار داده اید را دریافت کنید.<br>
+<h3 id=setAttributionListener>Get User attribution</h3>
+In case you want to access info about your user's current attribution when ever you need it, you can make a call to following method of the Metrix instance: <br>
 <div dir=ltr>
 
     Metrix.getInstance().setOnAttributionChangedListener(new OnAttributionChangedListener() {
@@ -392,32 +393,31 @@ There are three types of events in the Metrix:<br>
     });
 </div>
 
-مدل `AttributionModel` اطلاعات زیر را در اختیار شما قرار میدهد.
+Here is a quick summary of `AttributionModel` properties: <br>
 
-`attributionModel.getAcquisitionAd()` : نام تبلیغ
+`attributionModel.getAcquisitionAd()` : The creative/ad grouping level of the current attribution.
 
-`attributionModel.getAcquisitionAdSet()`: گروه تبلیغاتی
+`attributionModel.getAcquisitionAdSet()`: The adGroup/adSet grouping level of the current attribution.
 
-`attributionModel.getAcquisitionCampaign()`: کمپین تبلیغاتی
+`attributionModel.getAcquisitionCampaign()`: The campaign grouping level of the current attribution.
 
-`attributionModel.getAcquisitionSource()`: شبکه تبلیغاتی
+`attributionModel.getAcquisitionSource()`: The network/source grouping level of the current attribution.
 
-`attributionModel.getAttributionStatus()`: وضعیت کاربر در کمپین را
-مشخص میکند و فقط چهار مقدار زیر را برمیگرداند
+`attributionModel.getAttributionStatus()`: Specifies the status of the user in the campaign and returns only the four values below:
+<br>
 
-۱- `ATTRIBUTED` اتربیوت شده
+1- `ATTRIBUTED`
 
-۲- `NOT_ATTRIBUTED_YET` هنوز اتربیوت نشده
+2- `NOT_ATTRIBUTED_YET`
 
-۳- `ATTRIBUTION_NOT_NEEDED` نیاز به اتربیوت ندارد
+3- `ATTRIBUTION_NOT_NEEDED`
 
-۴- `UNKNOWN` حالت ناشناخته
+4- `UNKNOWN`
+<br>
 
+<h3 id=setDefaultTracker>Pre-installed trackers</h3>
 
-
-<h3 id=setDefaultTracker>۲۰. مشخص کردن Pre-installed Tracker</h3>
-
-با استفاده از این تابع می‌توانید با استفاده از یک `trackerToken` که از پنل آن را دریافت می‌کنید، برای همه‌ی رویدادها یک `tracker` پیش‌فرض را قرار دهید:<br>
+If you want to use the Metrix SDK to recognize users whose devices came with your app pre-installed, open your app delegate and add set the default tracker of your config. Replace `trackerToken` with the tracker token you created in dashboard. Please note that the Dashboard displays a tracker URL (including http://tracker.metrix.ir/). In your source code, you should specify only the six-character token and not the entire URL. <br>
 <div dir=ltr>
 
     Metrix.getInstance().setDefaultTracker(trackerToken);
