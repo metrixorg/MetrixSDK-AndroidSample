@@ -36,7 +36,7 @@
 
 <h2 id=project_setup>Basic integration</h2>
 
-۱. ابتدا تنظیمات زیر را در قسمت `repositories` فایل `gradle` کل پروژه اضافه کنید:
+1. First, add the following settings in the `repositories` of the `gradle`:
 
 <div dir="ltr">
 
@@ -52,13 +52,13 @@
     }
 </div>
 
-۲. کتاب خانه زیر را در قسمت `dependencies` فایل `gradle` اپلیکیشن خود اضافه کنید:
+2. Add the following library in the `dependencies` of your `gradle`:
 <div dir="ltr">
 
     implementation 'ir.metrix:metrix:0.8.0'
 </div>
 
-۳. آپشن زیر را به بلاک `android` فایل `gradle` اپلیکیشن خود اضافه کنید:
+3. Add the following option to the `android` block of your application's `gradle`:
 
 <div dir="ltr">
 
@@ -69,7 +69,7 @@
 </div>
 
 
-۴. تنظیمات زیر را به `Proguard` پروژه خود اضافه کنید:
+4. Add the following settings to your project's `Proguard`:
 
 <div dir=ltr>
 
@@ -132,7 +132,7 @@
 
 </div>
 
-۵. برای کتابخانه `Metrix` لازم است تا دسترسی‌های زیر را به فایل `AndroidManifest.xml` اضافه کنید:
+5. For the `Metrix`, you need to add the following accesses to the `AndroidManifest.xml`:
 
 <div dir=ltr>
 
@@ -142,19 +142,19 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!--optional-->
 </div>
 
-(دو permission دوم اختیاری است)
+(Two last permissions are optional)
 
-<h2 id=integration>راه‌اندازی و پیاده‌سازی sdk در اپلیکیشن اندروید:</h2>
+<h2 id=integration>Add the SDK to your project</h2>
 
-<h3 id=application_setup>تنظیمات اولیه در اپلیکیشن:</h3>
+<h3 id=application_setup>Initial configuration in the app</h3>
 
-باید کتابخانه متریکس را در کلاس `Application` اندروید `initialize` کنید. اگر از قبل در پروژه خود کلاس `Application` ندارید به شکل زیر این کلاس را ایجاد کنید:<br>
-۱. یک کلاس ایجاد کنید که از کلاس `Application` را ارث بری کند:<br>
+You need to initialize the Metrix SDK in the `onCreate` method of your `Application`. If you do not already have a `Application` class in your project, create this class as below:<br>
+1. Create a class that inherits from the `Application`:<br>
 
 <img src="https://storage.backtory.com/tapsell-server/metrix/doc/screenshots/Metrix-Application-Class.png"/>
 
-۲. فایل `AndriodManifest.xml` اپلیکیشن خود را باز کنید و به تگ `<application>` بروید.<br>
-۳. با استفاده از `Attribute` زیر کلاس `Application` خود را در `AndroidManifest.xml` اضافه کنید:<br>
+2. Open the `AndriodManifest.xml` and go to the tag `<application>`.<br>
+3. Using the subclass `Attribute`, add` Application` to `AndroidManifest.xml`:<br>
 
 <div dir=ltr>
 
@@ -167,7 +167,7 @@
 
 <img src="https://storage.backtory.com/tapsell-server/metrix/doc/screenshots/Metrix-Application-Manifest.png">
 
-۴. در متد `onCreate` کلاس `Application` خود، مطابق قطعه کد زیر sdk متریکس را `initialize` کنید:<br>
+4. In the method `onCreate` of your class `Application`, initialize the Metrix according to the code below:<br>
 <div dir=ltr>
 
     import ir.metrix.analytics.Metrix;
@@ -182,26 +182,25 @@
     }
 </div>
 
-`APP_ID`: کلید اپلیکیشن شما که از پنل متریکس آن را دریافت می‌کنید.
+Replace `APP_ID` with your application id. You can find this in your Metrix's dashboard.
 
-<h3 id=about_application_class>در مورد کلاس اپلیکیشن و initialize کردن در این کلاس</h3>
+<h3 id=about_application_class>About the application class and initialization in this class</h3>
 
-اندروید در کلاس اپلیکیشن به توسعه دهنده این اختیار را می‌دهد که قبل از ساخته شدن هر `Activity` در اپلیکیشن دستوراتی را وارد کند. این موضوع برای کتابخانه متریکس نیز ضروری است، به این دلیل که شمردن `session`ها و همچنین جریان بین `Activity`ها و دیگر امکانات کارایی لازم را داشته باشند و به درستی عمل کنند.
+The Android gives developers the ability to enter commands before the creation of any `activity` in the application class. This is also necessary for the Metrix, because counting the `session`, flows between `activities` and other features depend on them to work properly.
 
-<h2 id=methods>امکانات کتابخانه متریکس</h2>
+<h2 id=methods>Additional features</h2>
 
-<h3 id=session_event_description>۱. توضیح مفاهیم رویداد (event) و نشست (session)</h3>
-در هر تعاملی که کاربر با اپلیکیشن دارد، کتابخانه متریکس این تعامل را در قالب یک <b>رویداد</b> برای سرور ارسال می‌کند. تعریف کتابخانه متریکس از یک <b>نشست</b>، بازه زمانی مشخصی است که کاربر با اپلیکیشن در تعامل است.<br>
+<h3 id=session_event_description>Explain the concepts of event and session</h3>
+In each interaction that the user has with the app, the Metrix sends this interaction to the server as a <b>event</b>. In Metrix, <b>session</b> means that a specific timeframe that the user interacts with the app.<br>
+There are three types of events in the Metrix:<br>
+<b>1. Session Start:</b> The time of start a session.<br>
+<b>2. Session Stop:</b> The time of stop a session.<br>
+<b>3. Custom:</b> Depending on your application logic and the interactiion that the user has with your app, you can create and send custom events as below:<br>
+
+<b>Tip:</b> To use library facilities and call the methods provided by the SDK, you must get `MetrixClient` using `getInstance` and then select your desired method.<br>
 <br>
-در کتابخانه متریکس سه نوع رویداد داریم:<br>
-<b>۱. شروع نشست (session_start):</b> زمان شروع یک نشست.<br>
-<b>۲. پایان نشست (session_stop):‌</b> زمان پایان یک نشست.<br>
-<b>۳. سفارشی (custom):</b> وابسته به منطق اپلیکیشن شما و تعاملی که کاربر با اپلیکیشن شما دارد می‌توانید رویدادهای سفارشی خود را در قالبی که در ادامه شرح داده خواهد شد بسازید و ارسال کنید.<br>
 
-<b>نکته:</b> برای استفاده از امکانات کتابخانه و صدا زدن متدهایی که کتابخانه در اختیار شما می‌گذارد باید `MetrixClient` را با استفاده از متد `getInstance` دریافت کنید و در ادامه متد مدنظر خود را صدا بزنید.<br>
-<br>
-
-<h3 id=enableLocationListening>۲. فعال یا غیرفعال کردن ثبت اطلاعات مکان کاربر در رویدادها</h3>
+<h3 id=enableLocationListening>Enable location listening</h3>
 می‌توانید با استفاده از دو تابع زیر به کتابخانه متریکس اعلام کنید که در رویدادها اطلاعات مربوط به مکان کاربر را به همراه دیگر اطلاعات ارسال کند یا نکند. (برای اینکه این متد به درستی عمل کند دسترسی‌های اختیاری که بالاتر ذکر شد باید فعال باشند)<br>
 <div dir=ltr>
 
@@ -210,7 +209,7 @@
     Metrix.getInstance().disableLocationListening();
 </div>
 
-<h3 id=setEventUploadThreshold>۳. تعیین سقف تعداد رویدادها برای ارسال به سمت سرور</h3>
+<h3 id=setEventUploadThreshold>The maximum number of upload events</h3>
 با استفاده از تابع زیر می‌توانید مشخص کنید که هر موقع تعداد رویدادهای ذخیره شده شما به تعداد مورد نظر شما رسید کتابخانه رویدادها را برای سرور ارسال کند:<br>
 <div dir=ltr>
 
