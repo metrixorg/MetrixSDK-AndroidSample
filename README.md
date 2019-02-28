@@ -2,6 +2,8 @@
 [![CircleCI](https://circleci.com/gh/metrixorg/MetrixSDK-AndroidSample.svg?style=svg)](https://circleci.com/gh/metrixorg/MetrixSDK-AndroidSample)
 [ ![Download](https://api.bintray.com/packages/metrixorg/maven/metrix-sdk-android/images/download.svg) ](https://bintray.com/metrixorg/maven/metrix-sdk-android/_latestVersion)
 <div dir="rtl">
+    
+*Read this in other languages: [فارسی](README.md), [English](README.en.md).*
 
 <h2>فهرست</h2>
 <a href=#project_setup>۱. تنظیمات اولیه در پروژه</a><br>
