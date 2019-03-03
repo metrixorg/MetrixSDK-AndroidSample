@@ -58,6 +58,19 @@
     implementation 'ir.metrix:metrix:0.8.0'
 </div>
 
+if the ‍`minSdkVersion` of your project is lower than 19, then you should append below these lines:
+
+<div dir="ltr">
+
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+
+    implementation ('ir.metrix:metrix:0.8.0'){
+    exclude group: 'com.squareup.retrofit2', module: 'retrofit'
+    exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+    }
+</div>
+
 3. Add the following options to the `android` block of your application's `gradle` file:
 
 <div dir="ltr">
