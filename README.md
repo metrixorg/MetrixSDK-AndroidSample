@@ -55,22 +55,8 @@
 ۲. کتاب خانه زیر را در قسمت `dependencies` فایل `gradle` اپلیکیشن خود اضافه کنید:
 <div dir="ltr">
 
-    implementation 'ir.metrix:metrix:0.8.0'
+    implementation 'ir.metrix:metrix:0.8.1'
 </div>
-
-  اگر `minSdkVersion‍` شما کمتر از ۱۹ است باید تنظیمات زیر را انجام دهید
-
-<div dir="ltr">
-
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
-
-    implementation ('ir.metrix:metrix:0.8.0'){
-    exclude group: 'com.squareup.retrofit2', module: 'retrofit'
-    exclude group: 'com.squareup.okhttp3', module: 'okhttp'
-    }
-</div>
-
 
 ۳. آپشن زیر را به بلاک `android` فایل `gradle` اپلیکیشن خود اضافه کنید:
 
