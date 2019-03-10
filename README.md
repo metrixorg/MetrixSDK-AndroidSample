@@ -7,30 +7,33 @@
 
 <h2>فهرست</h2>
 <a href=#project_setup>۱. تنظیمات اولیه در پروژه</a><br>
-<a href=#integration>۲. راه‌اندازی و پیاده‌سازی</a><br>
-<a style="padding-right:2em" href=#application_setup>۲.۱. تنظیمات اولیه در اپلیکیشن</a><br>
-<a style="padding-right:2em" href=#about_application_class>۲.۲. در مورد کلاس اپلیکیشن و initialize کردن در این کلاس</a><br>
-<a href=#methods>۳. امکانات کتابخانه متریکس</a><br>
-<a style="padding-right:2em" href=#session_event_description>۳.۱. توضیح مفاهیم رویداد (event) و نشست (session)</a><br>
-<a style="padding-right:2em" href=#enableLocationListening>۳.۲. ثبت اطلاعات مربوط به مکان</a><br>
-<a style="padding-right:2em" href=#setEventUploadThreshold>۳.۳. سقف تعداد رویدادهای ارسالی</a><br>
-<a style="padding-right:2em" href=#setEventUploadMaxBatchSize>۳.۴. حداکثر تعداد رویدادی ارسالی هر درخواست</a><br>
-<a style="padding-right:2em" href=#setEventMaxCount>۳.۵. تعداد حداکثر ذخیره رویداد در مخزن کتابخانه</a><br>
-<a style="padding-right:2em" href=#setEventUploadPeriodMillis>۳.۶. بازه زمانی ارسال رویدادها</a><br>
-<a style="padding-right:2em" href=#setSessionTimeoutMillis>۳.۷. بازه زمانی دلخواه برای نشست‌ها</a><br>
-<a style="padding-right:2em" href=#setOptOut>۳.۸. دستور عمل نکردن کل کتابخانه</a><br>
-<a style="padding-right:2em" href=#enableLogging>۳.۹. مدیریت لاگ‌ها</a><br>
-<a style="padding-right:2em" href=#setLogLevel>۳.۱۰. تعیین LogLevel</a><br>
-<a style="padding-right:2em" href=#setOffline>۳.۱۱. حالت آفلاین</a><br>
-<a style="padding-right:2em" href=#setFlushEventsOnClose>۳.۱۲. ارسال همه‌ی رویدادها</a><br>
-<a style="padding-right:2em" href=#getSessionNum>۳.۱۳. شماره نشست جاری</a><br>
-<a style="padding-right:2em" href=#newEvent>۳.۱۴. رویداد سفارشی</a><br>
-<a style="padding-right:2em" href=#setUserAttributes>۳.۱۵. مشخص کردن Attribute‌های پیش‌فرض همه‌ی رویدادها</a><br>
-<a style="padding-right:2em" href=#setUserMetrics>۳.۱۶. مشخص کردن Metricsهای پیش‌فرض همه‌ی رویدادها</a><br>
-<a style="padding-right:2em" href=#setScreenFlowsAutoFill>۳.۱۷. فعال کردن فرآیند نگهداری حرکت کاربر بین صفحات مختلف در اپلیکیشن</a><br>
-<a style="padding-right:2em" href=#isScreenFlowsAutoFill>۳.۱۸. اطلاع یافتن از مقدار screenFlow</a><br>
-<a style="padding-right:2em" href=#setAttributionListener>۳.۱۹. دریافت اطلاعات کمپین</a><br>
-<a style="padding-right:2em" href=#setDefaultTracker>۳.۲۰. مشخص کردن Pre-installed Tracker</a><br>
+<a href=#install_referrer>۲. install referrer</a><br>
+<a href=#google_play_referrer_api>۲.۱. تنظیمات google play referrer api</a><br>
+<a href=#google_play_store_intent>۲.۲. google play store intent</a><br>
+<a href=#integration>۳. راه‌اندازی و پیاده‌سازی</a><br>
+<a style="padding-right:2em" href=#application_setup>۳.۱. تنظیمات اولیه در اپلیکیشن</a><br>
+<a style="padding-right:2em" href=#about_application_class>۳.۲. در مورد کلاس اپلیکیشن و initialize کردن در این کلاس</a><br>
+<a href=#methods>۴. امکانات کتابخانه متریکس</a><br>
+<a style="padding-right:2em" href=#session_event_description>۴.۱. توضیح مفاهیم رویداد (event) و نشست (session)</a><br>
+<a style="padding-right:2em" href=#enableLocationListening>۴.۲. ثبت اطلاعات مربوط به مکان</a><br>
+<a style="padding-right:2em" href=#setEventUploadThreshold>۴.۳. سقف تعداد رویدادهای ارسالی</a><br>
+<a style="padding-right:2em" href=#setEventUploadMaxBatchSize>۴.۴. حداکثر تعداد رویدادی ارسالی هر درخواست</a><br>
+<a style="padding-right:2em" href=#setEventMaxCount>۴.۵. تعداد حداکثر ذخیره رویداد در مخزن کتابخانه</a><br>
+<a style="padding-right:2em" href=#setEventUploadPeriodMillis>۴.۶. بازه زمانی ارسال رویدادها</a><br>
+<a style="padding-right:2em" href=#setSessionTimeoutMillis>۴.۷. بازه زمانی دلخواه برای نشست‌ها</a><br>
+<a style="padding-right:2em" href=#setOptOut>۴.۸. دستور عمل نکردن کل کتابخانه</a><br>
+<a style="padding-right:2em" href=#enableLogging>۴.۹. مدیریت لاگ‌ها</a><br>
+<a style="padding-right:2em" href=#setLogLevel>۴.۱۰. تعیین LogLevel</a><br>
+<a style="padding-right:2em" href=#setOffline>۴.۱۱. حالت آفلاین</a><br>
+<a style="padding-right:2em" href=#setFlushEventsOnClose>۴.۱۲. ارسال همه‌ی رویدادها</a><br>
+<a style="padding-right:2em" href=#getSessionNum>۴.۱۳. شماره نشست جاری</a><br>
+<a style="padding-right:2em" href=#newEvent>۴.۱۴. رویداد سفارشی</a><br>
+<a style="padding-right:2em" href=#setUserAttributes>۴.۱۵. مشخص کردن Attribute‌های پیش‌فرض همه‌ی رویدادها</a><br>
+<a style="padding-right:2em" href=#setUserMetrics>۴.۱۶. مشخص کردن Metricsهای پیش‌فرض همه‌ی رویدادها</a><br>
+<a style="padding-right:2em" href=#setScreenFlowsAutoFill>۴.۱۷. فعال کردن فرآیند نگهداری حرکت کاربر بین صفحات مختلف در اپلیکیشن</a><br>
+<a style="padding-right:2em" href=#isScreenFlowsAutoFill>۴.۱۸. اطلاع یافتن از مقدار screenFlow</a><br>
+<a style="padding-right:2em" href=#setAttributionListener>۴.۱۹. دریافت اطلاعات کمپین</a><br>
+<a style="padding-right:2em" href=#setDefaultTracker>۴.۲۰. مشخص کردن Pre-installed Tracker</a><br>
 
 
 
@@ -56,8 +59,6 @@
 <div dir="ltr">
 
     implementation 'ir.metrix:metrix:0.8.2'
-   implementation 'com.android.installreferrer:installreferrer:1.0'
-
 
 </div>
 
@@ -130,8 +131,6 @@
     -keep class * implements com.google.gson.JsonSerializer
     -keep class * implements com.google.gson.JsonDeserializer
 
-    #referral
-    -keep public class com.android.installreferrer.** { *; }
 
 </div>
 
@@ -146,7 +145,14 @@
 </div>
 
 (دو permission دوم اختیاری است)
-### ۶. تنظیمات google play referrer api:
+
+
+<h2 id=install_referrer>۲. Install referrer</h2>
+
+برای افزایش دقت تشخیص اتریبیوشن نصب‌های اپلیکیشن شما، متریکس نیازمند اطلاعاتی درباره `referrer` نصب اپلیکیشن است. این اطلاعات می‌تواند از طریق سرویس ارائه شده توسط کتابخانه Google Play Referrer API و یا دریافت Google Play Store intent با استفاده از یک broadcast receiver به دست آید.
+نکته مهم: سرویس Google Play Referrer API به تازگی توسط گوگل و با هدف فراهم کردن دقیق یک راه امن و مطمئن برای دریافت اطلاعات `referrer` نصب ارائه شده و این قابلیت را به سرویس‌دهندگان پلتفرم‌های اتریبیوشن می‌دهد تا با تقلب click injection مبازه کنند. به همین دلیل متریکس نیز به همه توسعه‌دهندگان استفاده از این سرویس را توصیه می‌کند. در مقابل، روش Google Play Store intent یک مسیر با ضریب امنیت کمتر برای به‌دست آوردن اطلاعات `referrer `نصب ارائه می‌دهد که البته به صورت موازی با Google Play Referrer API به طور موقت پشتیبانی می‌شود،اما در آینده‌ای نزدیک منسوخ خواهد شد.
+
+<h3 id=google_play_store_referrer_api>۱. تنظیمات Google Play Referrer api </h3>
 برای استفاده ازین ویژگی گوگل پلی باید کتابخانه زیر را اضافه کنید:
  <div dir="ltr">
 
@@ -161,12 +167,8 @@
 
 </div>
 
-### Install referrer
 
-برای افزایش دقت تشخیص اتریبیوشن نصب‌های اپلیکیشن شما، متریکس نیازمند اطلاعاتی درباره `referrer` نصب اپلیکیشن است. این اطلاعات می‌تواند از طریق سرویس ارائه شده توسط کتابخانه Google Play Referrer API و یا دریافت Google Play Store intent با استفاده از یک broadcast receiver به دست آید.
-نکته مهم: سرویس Google Play Referrer API به تازگی توسط گوگل و با هدف فراهم کردن دقیق یک راه امن و مطمئن برای دریافت اطلاعات `referrer` نصب ارائه شده و این قابلیت را به سرویس‌دهندگان پلتفرم‌های اتریبیوشن می‌دهد تا با تقلب click injection مبازه کنند. به همین دلیل متریکس نیز به همه توسعه‌دهندگان استفاده از این سرویس را توصیه می‌کند. در مقابل، روش Google Play Store intent یک مسیر با ضریب امنیت کمتر برای به‌دست آوردن اطلاعات `referrer `نصب ارائه می‌دهد که البته به صورت موازی با Google Play Referrer API به طور موقت پشتیبانی می‌شود،اما در آینده‌ای نزدیک منسوخ خواهد شد.
-
-### Google Play Store intent
+<h3 id=google_play_store_intent>۲. Google Play Store intent</h3>
 برای دریافت اینتنت `INSTALL_REFERRER` از گوگل پلی باید یک `broadcast receiver` آن را دریافت کند، اگر از `broadcast receiver` شخصی خود استفاده نمیکنید میتوانید با قرار دادن `receiver` زیر در تگ `application` فایل `AndroidManifest.xml` آن راکپچر کنید.
   <div dir="ltr">
 

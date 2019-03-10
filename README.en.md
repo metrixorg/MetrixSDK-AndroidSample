@@ -7,30 +7,33 @@
   
 <h2>Table of contents</h2>  
 <a href=#project_setup>1. Basic integration</a><br>  
-<a href=#integration>2. Add the SDK to your project</a><br>  
- <a style="padding-left:2em" href=#application_setup>2.1. Initial configuration in the app</a><br>  
- <a style="padding-left:2em" href=#about_application_class>2.2. About the application class and initialization in this class</a><br>  
-<a href=#methods>3. Additional features</a><br>  
- <a style="padding-left:2em" href=#session_event_description>3.1. Explain the concepts of event and session</a><br>  
- <a style="padding-left:2em" href=#enableLocationListening>3.2. Enable location listening</a><br>  
-<a style="padding-left:2em" href=#setEventUploadThreshold>3.3. Limitation in number of events to upload</a><br>  
-<a style="padding-left:2em" href=#setEventUploadMaxBatchSize>3.4. Limitation in number of events to send per request</a><br>  
-<a style="padding-left:2em" href=#setEventMaxCount>3.5. Limitation in number of events to buffer on the device</a><br>  
-<a style="padding-left:2em" href=#setEventUploadPeriodMillis>3.6. The time interval for sending events</a><br>  
-<a style="padding-left:2em" href=#setSessionTimeoutMillis>3.7. The session timeout</a><br>  
-<a style="padding-left:2em" href=#setOptOut>3.8. Disable tracking</a><br>  
-<a style="padding-left:2em" href=#enableLogging>3.9. Log management</a><br>  
-<a style="padding-left:2em" href=#setLogLevel>3.10. Set LogLevel</a><br>  
-<a style="padding-left:2em" href=#setOffline>3.11. Offline mode</a><br>  
-<a style="padding-left:2em" href=#setFlushEventsOnClose>3.12. Flush all events</a><br>  
-<a style="padding-left:2em" href=#getSessionNum>3.13. Current session number</a><br>  
-<a style="padding-left:2em" href=#newEvent>3.14. Custom event</a><br>  
-<a style="padding-left:2em" href=#setUserAttributes>3.15. Specify the default attributes for user</a><br>  
-<a style="padding-left:2em" href=#setUserMetrics>3.16. Specify the default metrics for user</a><br>  
-<a style="padding-left:2em" href=#setScreenFlowsAutoFill>3.17. Enable the process of storing the user flow</a><br>  
-<a style="padding-left:2em" href=#isScreenFlowsAutoFill>3.18. Find out the value of screenFlow</a><br>  
-<a style="padding-left:2em" href=#setAttributionListener>3.19. Get User attribution</a><br>  
-<a style="padding-left:2em" href=#setDefaultTracker>3.20. Pre-installed trackers</a><br>  
+<a href=#install_referrer>2. install referrer</a><br>
+<a href=#google_play_referrer_api>2.1. google play referrer api settings</a><br>
+<a href=#google_play_store_intent>2.2. google play store intent</a><br>
+<a href=#integration>3. Add the SDK to your project</a><br>
+<a style="padding-left:2em" href=#application_setup>3.1. Initial configuration in the app</a><br>
+<a style="padding-left:2em" href=#about_application_class>3.2. About the application class and initialization in this class</a><br>
+<a href=#methods>4. Additional features</a><br>
+<a style="padding-left:2em" href=#session_event_description>4.1. Explain the concepts of event and session</a><br>
+<a style="padding-left:2em" href=#enableLocationListening>4.2. Enable location listening</a><br>
+<a style="padding-left:2em" href=#setEventUploadThreshold>4.3. Limitation in number of events to upload</a><br>
+<a style="padding-left:2em" href=#setEventUploadMaxBatchSize>4.4. Limitation in number of events to send per request</a><br>
+<a style="padding-left:2em" href=#setEventMaxCount>4.5. Limitation in number of events to buffer on the device</a><br>
+<a style="padding-left:2em" href=#setEventUploadPeriodMillis>4.6. The time interval for sending events</a><br>
+<a style="padding-left:2em" href=#setSessionTimeoutMillis>4.7. The session timeout</a><br>
+<a style="padding-left:2em" href=#setOptOut>4.8. Disable tracking</a><br>
+<a style="padding-left:2em" href=#enableLogging>4.9. Log management</a><br>
+<a style="padding-left:2em" href=#setLogLevel>4.10. Set LogLevel</a><br>
+<a style="padding-left:2em" href=#setOffline>4.11. Offline mode</a><br>
+<a style="padding-left:2em" href=#setFlushEventsOnClose>4.12. Flush all events</a><br>
+<a style="padding-left:2em" href=#getSessionNum>4.13. Current session number</a><br>
+<a style="padding-left:2em" href=#newEvent>4.14. Custom event</a><br>
+<a style="padding-left:2em" href=#setUserAttributes>4.15. Specify the default attributes for user</a><br>
+<a style="padding-left:2em" href=#setUserMetrics>4.16. Specify the default metrics for user</a><br>
+<a style="padding-left:2em" href=#setScreenFlowsAutoFill>4.17. Enable the process of storing the user flow</a><br>
+<a style="padding-left:2em" href=#isScreenFlowsAutoFill>4.18. Find out the value of screenFlow</a><br>
+<a style="padding-left:2em" href=#setAttributionListener>4.19. Get User attribution</a><br>
+<a style="padding-left:2em" href=#setDefaultTracker>4.20. Pre-installed trackers</a><br>
   
   
   
@@ -56,7 +59,6 @@
 <div dir="ltr">  
   
     implementation 'ir.metrix:metrix:0.8.2'  
-    implementation 'com.android.installreferrer:installreferrer:1.0'
 
 </div>  
   
@@ -128,10 +130,7 @@
     -keep class * implements com.google.gson.TypeAdapterFactory  
     -keep class * implements com.google.gson.JsonSerializer  
     -keep class * implements com.google.gson.JsonDeserializer  
-  
-    #referral  
-    -keep public class com.android.installreferrer.** { *; }  
-  
+
 </div>  
   
 5. Please add the following permissions, which the Metrix SDK needs, if they are not already present in your `AndroidManifest.xml` file:  
@@ -146,13 +145,13 @@
   
 (Two last permissions are optional)  
 
-### Install referrer
+<h2 id=install_referrer>2. Install referrer</h2>
 
 In order to correctly attribute an install of your app to its source, Metrix needs information about the **install referrer**. This can be obtained by using the **Google Play Referrer API** or by catching the **Google Play Store intent** with a broadcast receiver.
 
 **Important**: The Google Play Referrer API is newly introduced by Google with the express purpose of providing a more reliable and secure way of obtaining install referrer information and to aid attribution providers in the fight against click injection. It is **strongly advised** that you support this in your application. The Google Play Store intent is a less secure way of obtaining install referrer information. It will continue to exist in parallel with the new Google Play Referrer API temporarily, but it is set to be deprecated in future.
 
-#### Google Play Referrer API
+<h3 id=google_play_referrer_api>1. Google Play Referrer API </h3>
 
 In order to support this in your app, please make sure have following line added to your  `build.gradle`  file:
 
@@ -168,8 +167,7 @@ Also, make sure that you have paid attention to the  Proguard  chapter and that 
 
 ```
 
-#### [](https://github.com/adjust/android_sdk#google-play-store-intent)Google Play Store intent
-
+<h3>2. Google Play Store intent</h3>
 The Google Play Store  `INSTALL_REFERRER`  intent should be captured with a broadcast receiver. If you are  **not using your own broadcast receiver**  to receive the  `INSTALL_REFERRER`  intent, add the following  `receiver`  tag inside the  `application` tag in your  `AndroidManifest.xml`.
 ```xml
 <receiver
