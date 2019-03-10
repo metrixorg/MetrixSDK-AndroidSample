@@ -461,7 +461,7 @@
     @Override
       public void onAttributionChanged(AttributionModel attributionModel) {
           //TODO
-  }
+       }
     });
 </div>
 

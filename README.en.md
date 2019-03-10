@@ -441,21 +441,23 @@ Using this function, you can inform the Metrix to gather information about user'
 (The default value is false.)<br>  
   
 <h3 id=isScreenFlowsAutoFill>Find out the value of screenFlow</h3>  
-Using this function, you can see that what the `screenFlow` value in the Metrix is:<br>  
+
+Using this function, you can see that what the `screenFlow` value in the Metrix is:<br>
 <div dir=ltr>  
   
     Metrix.getInstance().isScreenFlowsAutoFill();  
 </div>  
   
 <h3 id=setAttributionListener>Get User attribution</h3>  
-In case you want to access info about your user's current attribution when ever you need it, you can make a call to following method of the Metrix instance: <br>  
+
+In case you want to access info about your user's current attribution when ever you need it, you can make a call to following method of the Metrix instance: <br>
 <div dir=ltr>  
   
     Metrix.getInstance().setOnAttributionChangedListener(new OnAttributionChangedListener() {  
     @Override  
       public void onAttributionChanged(AttributionModel attributionModel) {  
           //TODO  
-  }  
+       }
     });  
 </div>  
   
