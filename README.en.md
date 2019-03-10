@@ -136,7 +136,7 @@
 
 </div>  
 
-5. apps in the Google Play Store must use the  [Google Advertising ID](https://support.google.com/googleplay/android-developer/answer/6048248?hl=en)  to uniquely identify devices. To allow the Metrix SDK to use the Google Advertising ID, you must integrate the  [Google Play Services](http://developer.android.com/google/play-services/setup.html). If you haven't done this yet, follow these steps:
+5. Since the 1st of August of 2014, apps in the Google Play Store must use the  [Google Advertising ID](https://support.google.com/googleplay/android-developer/answer/6048248?hl=en)  to uniquely identify devices. To allow the Metrix SDK to use the Google Advertising ID, you must integrate the  [Google Play Services](http://developer.android.com/google/play-services/setup.html). If you haven't done this yet, follow these steps:
 
 
   - Open the `build.gradle` file of your app and find the `dependencies` block. Add the following line:
@@ -167,13 +167,13 @@
   
 (Two last permissions are optional)  
 
-<h2 id=install_referrer>2. Install referrer</h2>
+<h2 id=install_referrer>Install Referrer</h2>
 
 In order to correctly attribute an install of your app to its source, Metrix needs information about the **install referrer**. This can be obtained by using the **Google Play Referrer API** or by catching the **Google Play Store intent** with a broadcast receiver.
 
 **Important**: The Google Play Referrer API is newly introduced by Google with the express purpose of providing a more reliable and secure way of obtaining install referrer information and to aid attribution providers in the fight against click injection. It is **strongly advised** that you support this in your application. The Google Play Store intent is a less secure way of obtaining install referrer information. It will continue to exist in parallel with the new Google Play Referrer API temporarily, but it is set to be deprecated in future.
 
-<h3 id=google_play_referrer_api>1. Google Play Referrer API </h3>
+<h3 id=google_play_referrer_api>Google Play Referrer API </h3>
 
 In order to support this in your app, please make sure have following line added to your  `build.gradle`  file:
 
@@ -189,7 +189,7 @@ Also, make sure that you have paid attention to the  Proguard  chapter and that 
 
 ```
 
-<h3 id=google_play_store_intent>2. Google Play Store intent</h3>
+<h3 id=google_play_store_intent>Google Play Store intent</h3>
 The Google Play Store  `INSTALL_REFERRER`  intent should be captured with a broadcast receiver. If you are  **not using your own broadcast receiver**  to receive the  `INSTALL_REFERRER`  intent, add the following  `receiver`  tag inside the  `application` tag in your  `AndroidManifest.xml`.
 ```xml
 <receiver
