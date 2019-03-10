@@ -167,7 +167,7 @@ Also, make sure that you have paid attention to the  Proguard  chapter and that 
 
 ```
 
-<h3>2. Google Play Store intent</h3>
+<h3 id=google_play_store_intent>2. Google Play Store intent</h3>
 The Google Play Store  `INSTALL_REFERRER`  intent should be captured with a broadcast receiver. If you are  **not using your own broadcast receiver**  to receive the  `INSTALL_REFERRER`  intent, add the following  `receiver`  tag inside the  `application` tag in your  `AndroidManifest.xml`.
 ```xml
 <receiver

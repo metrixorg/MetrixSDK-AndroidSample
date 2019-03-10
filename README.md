@@ -169,6 +169,7 @@
 
 
 <h3 id=google_play_store_intent>۲. Google Play Store intent</h3>
+
 برای دریافت اینتنت `INSTALL_REFERRER` از گوگل پلی باید یک `broadcast receiver` آن را دریافت کند، اگر از `broadcast receiver` شخصی خود استفاده نمیکنید میتوانید با قرار دادن `receiver` زیر در تگ `application` فایل `AndroidManifest.xml` آن راکپچر کنید.
   <div dir="ltr">
 
