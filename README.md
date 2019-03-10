@@ -7,9 +7,9 @@
 
 <h2>فهرست</h2>
 <a href=#project_setup>۱. تنظیمات اولیه در پروژه</a><br>
-<a href=#install_referrer>۲. install referrer</a><br>
-<a href=#google_play_referrer_api>۲.۱. تنظیمات google play referrer api</a><br>
-<a href=#google_play_store_intent>۲.۲. google play store intent</a><br>
+<a href=#install_referrer>۲. دریافت اطلاعات Install Referrer</a><br>
+<a href=#google_play_referrer_api>۲.۱. تنظیمات Google Play Referrer API</a><br>
+<a href=#google_play_store_intent>۲.۲. تنظیمات Google Play Store intent</a><br>
 <a href=#integration>۳. راه‌اندازی و پیاده‌سازی</a><br>
 <a style="padding-right:2em" href=#application_setup>۳.۱. تنظیمات اولیه در اپلیکیشن</a><br>
 <a style="padding-right:2em" href=#about_application_class>۳.۲. در مورد کلاس اپلیکیشن و initialize کردن در این کلاس</a><br>
@@ -135,14 +135,14 @@
 
 </div>
 
-۵. متریکس برای تشخیص دستگاه های یکتا از **google advertising id** استفاده میکند، برای اینکه متریکس بتواند ازین ویژگی استفاده کند باید طبق زیر کتابخانه آن را بلاک `dependencies` فایل `build.gradle` اضافه کنید:
+۵. متریکس برای تشخیص دستگاه های یکتا از **google advertising id** استفاده می‌کند، برای اینکه متریکس بتواند از این ویژگی استفاده کند باید طبق زیر کتابخانه آن را به قسمت `dependencies` فایل `build.gradle` اضافه کنید:
 
 <div dir="ltr">
 
     implementation 'com.google.android.gms:play-services-analytics:16.0.7'
 </div>
 
-اگر از ورژن کمتر از ۷ `play-servicses-analytics` استفاده میکنید باید بخش زیر را به تگ `application` فایل `AndroidManifest.xml` خود اضافه کنید
+اگر پروژه شما از ورژن قبل‌تر از ورژن ۷ کتابخانه‌ی `play-servicses-analytics` استفاده می‌کند، باید بخش زیر را به تگ `application` فایل `AndroidManifest.xml` خود اضافه کنید
 
 <div dir="ltr">
 
@@ -164,20 +164,20 @@
 (دو permission دوم اختیاری است)
 
 
-<h2 id=install_referrer>۲. Install referrer</h2>
+<h2 id=install_referrer>۲. دریافت اطلاعات Install Referrer</h2>
 
 برای افزایش دقت تشخیص اتریبیوشن نصب‌های اپلیکیشن شما، متریکس نیازمند اطلاعاتی درباره `referrer` نصب اپلیکیشن است. این اطلاعات می‌تواند از طریق سرویس ارائه شده توسط کتابخانه **Google Play Referrer API** و یا دریافت **Google Play Store intent** با استفاده از یک **broadcast receiver** به دست آید.
 
 **نکته مهم:** سرویس **Google Play Referrer API** به تازگی توسط گوگل و با هدف فراهم کردن دقیق یک راه امن و مطمئن برای دریافت اطلاعات `referrer` نصب ارائه شده و این قابلیت را به سرویس‌دهندگان پلتفرم‌های اتریبیوشن می‌دهد تا با تقلب click injection مبازه کنند. به همین دلیل متریکس نیز به همه توسعه‌دهندگان استفاده از این سرویس را توصیه می‌کند. در مقابل، روش **Google Play Store intent** یک مسیر با ضریب امنیت کمتر برای به‌دست آوردن اطلاعات `referrer`نصب ارائه می‌دهد که البته به صورت موازی با **Google Play Referrer API** به طور موقت پشتیبانی می‌شود،اما در آینده‌ای نزدیک منسوخ خواهد شد.
 
-<h3 id=google_play_referrer_api>۱. تنظیمات Google Play Referrer api </h3>
-برای استفاده ازین ویژگی گوگل پلی باید کتابخانه زیر را اضافه کنید:
+<h3 id=google_play_referrer_api> تنظیمات Google Play Referrer API </h3>
+برای استفاده ازین ویژگی Google Play باید کتابخانه زیر را اضافه کنید:
  <div dir="ltr">
 
     implementation 'com.android.installreferrer:installreferrer:1.0'
 
 </div>
-  همچنین رل زیر را باید به پروگارد خود اضافه کنید:
+  همچنین قانون زیر را باید به فایل `Proguard` خود اضافه کنید:
   <div dir="ltr">
 
     -keep public class com.android.installreferrer.** { *; }
@@ -186,9 +186,9 @@
 </div>
 
 
-<h3 id=google_play_store_intent>۲. Google Play Store intent</h3>
+<h3 id=google_play_store_intent> تنظیمات Google Play Store intent</h3>
 
-برای دریافت اینتنت `INSTALL_REFERRER` از گوگل پلی باید یک `broadcast receiver` آن را دریافت کند، اگر از `broadcast receiver` شخصی خود استفاده نمیکنید میتوانید با قرار دادن `receiver` زیر در تگ `application` فایل `AndroidManifest.xml` آن راکپچر کنید.
+برای دریافت intent `INSTALL_REFERRER` از Google Play باید یک `broadcast receiver` آن را دریافت کند، اگر از `broadcast receiver` سفارشی خود استفاده نمی‌کنید میتوانید با قرار دادن `receiver` زیر در تگ `application` فایل `AndroidManifest.xml` آن را دریافت کنید.
   <div dir="ltr">
 
     <receiver
@@ -202,7 +202,7 @@
 
 </div>
 
-چنان چه چندین کتابخانه برای دریافت اینتنت `INSTALL_REFERRER` دارید میتوانید با قرار دادن کلاس شخصی خود در رسیور مانند زیر عمل کنید:
+چنان چه چندین کتابخانه برای دریافت intent `INSTALL_REFERRER` دارید، می‌توانید با قرار دادن کلاس سفارشی خود در `receiver` مانند زیر عمل کنید:
   <div dir="ltr">
 
     <receiver
@@ -216,7 +216,7 @@
 
 </div>
 
-و کد کلاس `InstallReceiver` به صورت زیر میشود:
+و کد کلاس `InstallReceiver` به صورت زیر می‌شود:
   <div dir="ltr">
 
     public class InstallReceiver extends BroadcastReceiver {
