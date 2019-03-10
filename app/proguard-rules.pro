@@ -55,3 +55,6 @@
 
 #referral
 -keep public class com.android.installreferrer.** { *; }
+
+#gms
+-keep class com.google.android.gms.** { *; }

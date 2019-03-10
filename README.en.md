@@ -129,11 +129,32 @@
     # JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)  
     -keep class * implements com.google.gson.TypeAdapterFactory  
     -keep class * implements com.google.gson.JsonSerializer  
-    -keep class * implements com.google.gson.JsonDeserializer  
+    -keep class * implements com.google.gson.JsonDeserializer
+    #gms
+    -keep class com.google.android.gms.** { *; }
+
 
 </div>  
-  
-5. Please add the following permissions, which the Metrix SDK needs, if they are not already present in your `AndroidManifest.xml` file:  
+
+5.apps in the Google Play Store must use the [Google Advertising ID][google_ad_id] to uniquely identify devices. To allow the Metrix SDK to use the Google Advertising ID, you must integrate the [Google Play Services][google_play_services]. If you haven't done this yet, follow these steps:
+
+  - Open the `build.gradle` file of your app and find the `dependencies` block. Add the following line:
+
+      ```
+      implementation 'com.google.android.gms:play-services-analytics:16.0.7'
+      ```
+
+      **Note**: The Metrix SDK is not tied to any specific version of the `play-services-analytics` part of the Google Play Services library, so feel free to always use the latest version of it (or whichever you might need).
+
+  - **Skip this step if you are using version 7 or later of Google Play Services**: In the Package Explorer open the `AndroidManifest.xml` of your Android project. Add the following `meta-data` tag inside the `<application>` element.
+
+      ```xml
+      <meta-data android:name="com.google.android.gms.version"
+                 android:value="@integer/google_play_services_version" />
+      ```
+
+
+6. Please add the following permissions, which the Metrix SDK needs, if they are not already present in your `AndroidManifest.xml` file:
   
 <div dir=ltr>  
   

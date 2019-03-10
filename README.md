@@ -130,11 +130,28 @@
     -keep class * implements com.google.gson.TypeAdapterFactory
     -keep class * implements com.google.gson.JsonSerializer
     -keep class * implements com.google.gson.JsonDeserializer
-
+    #gms
+    -keep class com.google.android.gms.** { *; }
 
 </div>
 
-۵. برای کتابخانه `Metrix` لازم است تا دسترسی‌های زیر را به فایل `AndroidManifest.xml` اضافه کنید:
+۵. متریکس برای تشخیص دستگاه های یکتا از **google advertising id** استفاده میکند، برای اینکه متریکس بتواند ازین ویژگی استفاده کند باید طبق زیر کتابخانه آن را بلاک `dependencies` فایل `build.gradle` اضافه کنید:
+
+<div dir="ltr">
+
+    implementation 'com.google.android.gms:play-services-analytics:16.0.7'
+</div>
+
+اگر از ورژن کمتر از ۷ `play-servicses-analytics` استفاده میکنید باید بخش زیر را به تگ `application` فایل `AndroidManifest.xml` خود اضافه کنید
+
+<div dir="ltr">
+
+    <meta-data android:name="com.google.android.gms.version"
+           android:value="@integer/google_play_services_version" />
+</div>
+
+
+۶. برای کتابخانه `Metrix` لازم است تا دسترسی‌های زیر را به فایل `AndroidManifest.xml` اضافه کنید:
 
 <div dir=ltr>
 
@@ -461,7 +478,7 @@
     @Override
       public void onAttributionChanged(AttributionModel attributionModel) {
           //TODO
- }
+  }
     });
 </div>
 
