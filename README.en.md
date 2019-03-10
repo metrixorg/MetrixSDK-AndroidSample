@@ -21,19 +21,17 @@
 <a style="padding-left:2em" href=#setEventMaxCount>4.5. Limitation in number of events to buffer on the device</a><br>
 <a style="padding-left:2em" href=#setEventUploadPeriodMillis>4.6. The time interval for sending events</a><br>
 <a style="padding-left:2em" href=#setSessionTimeoutMillis>4.7. The session timeout</a><br>
-<a style="padding-left:2em" href=#setOptOut>4.8. Disable tracking</a><br>
-<a style="padding-left:2em" href=#enableLogging>4.9. Log management</a><br>
-<a style="padding-left:2em" href=#setLogLevel>4.10. Set LogLevel</a><br>
-<a style="padding-left:2em" href=#setOffline>4.11. Offline mode</a><br>
-<a style="padding-left:2em" href=#setFlushEventsOnClose>4.12. Flush all events</a><br>
-<a style="padding-left:2em" href=#getSessionNum>4.13. Current session number</a><br>
-<a style="padding-left:2em" href=#newEvent>4.14. Custom event</a><br>
-<a style="padding-left:2em" href=#setUserAttributes>4.15. Specify the default attributes for user</a><br>
-<a style="padding-left:2em" href=#setUserMetrics>4.16. Specify the default metrics for user</a><br>
-<a style="padding-left:2em" href=#setScreenFlowsAutoFill>4.17. Enable the process of storing the user flow</a><br>
-<a style="padding-left:2em" href=#isScreenFlowsAutoFill>4.18. Find out the value of screenFlow</a><br>
-<a style="padding-left:2em" href=#setAttributionListener>4.19. Get User attribution</a><br>
-<a style="padding-left:2em" href=#setDefaultTracker>4.20. Pre-installed trackers</a><br>
+<a style="padding-left:2em" href=#enableLogging>4.8. Log management</a><br>
+<a style="padding-left:2em" href=#setLogLevel>4.9. Set LogLevel</a><br>
+<a style="padding-left:2em" href=#setFlushEventsOnClose>4.10. Flush all events</a><br>
+<a style="padding-left:2em" href=#getSessionNum>4.11. Current session number</a><br>
+<a style="padding-left:2em" href=#newEvent>4.12. Custom event</a><br>
+<a style="padding-left:2em" href=#setUserAttributes>4.13. Specify the default attributes for user</a><br>
+<a style="padding-left:2em" href=#setUserMetrics>4.14. Specify the default metrics for user</a><br>
+<a style="padding-left:2em" href=#setScreenFlowsAutoFill>4.15. Enable the process of storing the user flow</a><br>
+<a style="padding-left:2em" href=#isScreenFlowsAutoFill>4.16. Find out the value of screenFlow</a><br>
+<a style="padding-left:2em" href=#setAttributionListener>4.17. Get User attribution</a><br>
+<a style="padding-left:2em" href=#setDefaultTracker>4.18. Pre-installed trackers</a><br>
   
   
   
@@ -332,15 +330,7 @@ Using this function, you can specify the limit of session lengthes in your appli
     Metrix.getInstance().setSessionTimeoutMillis(1800000);  
 </div>  
 (The default value is 30 minutes.)<br>  
-  
-<h3 id=setOptOut>Disable tracking</h3>  
-Using this function, you can command the SDK to not record any events:<br>  
-<div dir=ltr>  
-  
-    Metrix.getInstance().setOptOut(true);  
-</div>  
-(The default value is false.)<br>  
-  
+
 <h3 id=enableLogging>Log management</h3>  
 Note that setting the value of this value to `false` during the release of your application:<br>  
 <div dir=ltr>  
@@ -358,15 +348,7 @@ Using this function, you can specify what level of logs to be printed in `logcat
 </div>  
   
 (The default value is `Log.INFO`.)<br>  
-  
-<h3 id=setOffline>Offline mode</h3>  
-Using this function, the SDK does not send events to the server, but still records events with your preferences:<br>  
-<div dir=ltr>  
-  
-    Metrix.getInstance().setOffline(true);  
-</div>  
-(The default value is false.)<br>  
-  
+
 <h3 id=setFlushEventsOnClose>Flush all events</h3>  
 Using this function, you can specify that when the application is closed, all events buffered in the device, should be sent or not:  
 <br>  

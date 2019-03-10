@@ -21,19 +21,17 @@
 <a style="padding-right:2em" href=#setEventMaxCount>۴.۵. تعداد حداکثر ذخیره رویداد در مخزن کتابخانه</a><br>
 <a style="padding-right:2em" href=#setEventUploadPeriodMillis>۴.۶. بازه زمانی ارسال رویدادها</a><br>
 <a style="padding-right:2em" href=#setSessionTimeoutMillis>۴.۷. بازه زمانی دلخواه برای نشست‌ها</a><br>
-<a style="padding-right:2em" href=#setOptOut>۴.۸. دستور عمل نکردن کل کتابخانه</a><br>
-<a style="padding-right:2em" href=#enableLogging>۴.۹. مدیریت لاگ‌ها</a><br>
-<a style="padding-right:2em" href=#setLogLevel>۴.۱۰. تعیین LogLevel</a><br>
-<a style="padding-right:2em" href=#setOffline>۴.۱۱. حالت آفلاین</a><br>
-<a style="padding-right:2em" href=#setFlushEventsOnClose>۴.۱۲. ارسال همه‌ی رویدادها</a><br>
-<a style="padding-right:2em" href=#getSessionNum>۴.۱۳. شماره نشست جاری</a><br>
-<a style="padding-right:2em" href=#newEvent>۴.۱۴. رویداد سفارشی</a><br>
-<a style="padding-right:2em" href=#setUserAttributes>۴.۱۵. مشخص کردن Attribute‌های پیش‌فرض همه‌ی رویدادها</a><br>
-<a style="padding-right:2em" href=#setUserMetrics>۴.۱۶. مشخص کردن Metricsهای پیش‌فرض همه‌ی رویدادها</a><br>
-<a style="padding-right:2em" href=#setScreenFlowsAutoFill>۴.۱۷. فعال کردن فرآیند نگهداری حرکت کاربر بین صفحات مختلف در اپلیکیشن</a><br>
-<a style="padding-right:2em" href=#isScreenFlowsAutoFill>۴.۱۸. اطلاع یافتن از مقدار screenFlow</a><br>
-<a style="padding-right:2em" href=#setAttributionListener>۴.۱۹. دریافت اطلاعات کمپین</a><br>
-<a style="padding-right:2em" href=#setDefaultTracker>۴.۲۰. مشخص کردن Pre-installed Tracker</a><br>
+<a style="padding-right:2em" href=#enableLogging>۴.۸. مدیریت لاگ‌ها</a><br>
+<a style="padding-right:2em" href=#setLogLevel>۴.۹. تعیین LogLevel</a><br>
+<a style="padding-right:2em" href=#setFlushEventsOnClose>۴.۱۰. ارسال همه‌ی رویدادها</a><br>
+<a style="padding-right:2em" href=#getSessionNum>۴.۱۱. شماره نشست جاری</a><br>
+<a style="padding-right:2em" href=#newEvent>۴.۱۲. رویداد سفارشی</a><br>
+<a style="padding-right:2em" href=#setUserAttributes>۴.۱۳. مشخص کردن Attribute‌های پیش‌فرض همه‌ی رویدادها</a><br>
+<a style="padding-right:2em" href=#setUserMetrics>۴.۱۴. مشخص کردن Metricsهای پیش‌فرض همه‌ی رویدادها</a><br>
+<a style="padding-right:2em" href=#setScreenFlowsAutoFill>۴.۱۵. فعال کردن فرآیند نگهداری حرکت کاربر بین صفحات مختلف در اپلیکیشن</a><br>
+<a style="padding-right:2em" href=#isScreenFlowsAutoFill>۴.۱۶. اطلاع یافتن از مقدار screenFlow</a><br>
+<a style="padding-right:2em" href=#setAttributionListener>۴.۱۷. دریافت اطلاعات کمپین</a><br>
+<a style="padding-right:2em" href=#setDefaultTracker>۴.۱۸. مشخص کردن Pre-installed Tracker</a><br>
 
 
 
@@ -339,15 +337,7 @@
 </div>
 (مقدار پیش‌فرض این تابع در کتابخانه ۳۰ دقیقه است.)<br>
 
-<h3 id=setOptOut>۸. دستور عمل نکردن کل کتابخانه</h3>
-با استفاده از این تابع می‌توانید به کتابخانه دستور بدهید که هیچ رویدادی را ثبت نکند:<br>
-<div dir=ltr>
-
-    Metrix.getInstance().setOptOut(true);
-</div>
-(مقدار پیش‌فرض این تابع در کتابخانه false است.)<br>
-
-<h3 id=enableLogging>۹. فعال کردن مدیریت لاگ‌ها کتابخانه متریکس</h3>
+<h3 id=enableLogging>۸. فعال کردن مدیریت لاگ‌ها کتابخانه متریکس</h3>
 توجه داشته باشید که موقع release اپلیکیشن خود مقدار این تابع را false قرار دهید:<br>
 <div dir=ltr>
 
@@ -355,7 +345,7 @@
 </div>
 (مقدار پیش‌فرض این تابع در کتابخانه true است.)<br>
 
-<h3 id=setLogLevel>۱۰. تعیین LogLevel</h3>
+<h3 id=setLogLevel>۹. تعیین LogLevel</h3>
 
 با استفاده از این تابع می‌توانید مشخص کنید که چه سطحی از لاگ‌ها در `logcat` چاپ شود، به عنوان مثال دستور زیر همه‌ی سطوح لاگ‌ها به جز `VERBOSE` در `logcat` نمایش داده شود:<br>
 <div dir=ltr>
@@ -365,15 +355,8 @@
 
 (مقدار پیش‌فرض این تابع در کتابخانه `Log.INFO` است.)<br>
 
-<h3 id=setOffline>۱۱. روشن کردن حالت آفلاین کتابخانه</h3>
-با استفاده از این تابع کتابخانه رویدادها را برای سرور ارسال نمی‌کند اما همچنان رویدادها را با تنظیمات دلخواه شما ثبت می‌کند:<br>
-<div dir=ltr>
 
-    Metrix.getInstance().setOffline(true);
-</div>
-(مقدار پیش‌فرض این تابع در کتابخانه false است.)<br>
-
-<h3 id=setFlushEventsOnClose>۱۲. فعال یا غیرفعال کردن ارسال همه‌ی رویدادها</h3>
+<h3 id=setFlushEventsOnClose>۱۰. فعال یا غیرفعال کردن ارسال همه‌ی رویدادها</h3>
 با استفاده از این تابع می‌توانید مشخص کنید که زمانی که اپلیکیشن بسته می‌شود همه رویدادهای ذخیره شده در کتابخانه ارسال شود یا نشود:<br>
 <div dir=ltr>
 
@@ -381,14 +364,14 @@
 </div>
 (مقدار پیش‌فرض این تابع در کتابخانه true است.)<br>
 
-<h3 id=getSessionNum>۱۳. اطلاع یافتن از شماره نشست جاری</h3>
+<h3 id=getSessionNum>۱۱. اطلاع یافتن از شماره نشست جاری</h3>
 با استفاده از این تابع می‌توانید از شماره نشست (session)  جاری اطلاع پیدا کنید:<br>
 <div dir=ltr>
 
     Metrix.getInstance().getSessionNum();
 </div>
 
-<h3 id=newEvent>۱۴. ساختن یک رویداد سفارشی</h3>
+<h3 id=newEvent>۱۲. ساختن یک رویداد سفارشی</h3>
 با استفاده از این تابع می‌توانید یک رویداد سفارشی بسازید. برای این کار شما در ابتدا باید در داشبورد متریکس از قسمت مدیریت رخدادها، رخداد موردنظر خود را ثبت کنید و نامک (slug) آن را بعنوان نام رخداد در sdk استفاده کنید.<br>
 این تابع را به دو صورت می‌توانید صدا بزنید:<br>
 ۱. یک رویداد سفارشی که فقط یک اسم مشخص دارد بسازید:<br>
@@ -431,7 +414,7 @@
     5. Sting
     6. Boolean
 
-<h3 id=setUserAttributes>۱۵. مشخص کردن Attribute‌های پیش‌فرض همه‌ی رویدادها</h3>
+<h3 id=setUserAttributes>۱۳. مشخص کردن Attribute‌های پیش‌فرض همه‌ی رویدادها</h3>
 
 با استفاده از این تابع می‌توانید به تعداد دلخواه `Attribute` به همه‌ی رویدادهای خود اضافه کنید:<br>
 <div dir=ltr>
@@ -442,7 +425,7 @@
     Metrix.getInstance().addUserAttributes(attributes);
 </div>
 
-<h3 id=setUserMetrics>۱۶. مشخص کردن Metricsهای پیش‌فرض همه‌ی رویدادها</h3>
+<h3 id=setUserMetrics>۱۴. مشخص کردن Metricsهای پیش‌فرض همه‌ی رویدادها</h3>
 
 با استفاده از این تابع می‌توانید به تعداد دلخواه `Metric` به همه‌ی رویدادهای خود اضافه کنید:<br>
 <div dir=ltr>
@@ -453,7 +436,7 @@
     Metrix.getInstance().setUserMetrics(metrics);
 </div>
 
-<h3 id=setScreenFlowsAutoFill>۱۷. فعال کردن فرآیند نگهداری حرکت کاربر بین صفحات مختلف در اپلیکیشن</h3>
+<h3 id=setScreenFlowsAutoFill>۱۵. فعال کردن فرآیند نگهداری حرکت کاربر بین صفحات مختلف در اپلیکیشن</h3>
 
 با استفاده از این تابع می‌توانید به کتابخانه متریکس اطلاع بدهید که تشخیص بدهد کاربر از کدام `Activity`/`Fragment` به کدام `Activity`/`Fragment` می‌رود و این داده‌ها را به صورت اتوماتیک ذخیره کند:<br>
 <div dir=ltr>
@@ -462,14 +445,14 @@
 </div>
 (مقدار پیش‌فرض این تابع در کتابخانه false است.)<br>
 
-<h3 id=isScreenFlowsAutoFill>۱۸. اطلاع یافتن از مقدار screenFlow در کتابخانه</h3>
+<h3 id=isScreenFlowsAutoFill>۱۶. اطلاع یافتن از مقدار screenFlow در کتابخانه</h3>
 با استفاده از این تابع می‌توانید متوجه شوید که مقدار `screenFlow` در کتابخانه متریکس چیست:<br>
 <div dir=ltr>
 
     Metrix.getInstance().isScreenFlowsAutoFill();
 </div>
 
-<h3 id=setAttributionListener>۱۹. دریافت اطلاعات کمپین</h3>
+<h3 id=setAttributionListener>۱۷. دریافت اطلاعات کمپین</h3>
 
 با مقداردهی این تابعه میتوانید اطلاعات کمپین تبلیغاتی که در ترکر خود در پنل قرار داده اید را دریافت کنید.<br>
 <div dir=ltr>
@@ -505,7 +488,7 @@
 
 
 
-<h3 id=setDefaultTracker>۲۰. مشخص کردن Pre-installed Tracker</h3>
+<h3 id=setDefaultTracker>۱۸. مشخص کردن Pre-installed Tracker</h3>
 
 با استفاده از این تابع می‌توانید با استفاده از یک `trackerToken` که از پنل آن را دریافت می‌کنید، برای همه‌ی رویدادها یک `tracker` پیش‌فرض را قرار دهید:<br>
 <div dir=ltr>
