@@ -136,7 +136,8 @@
 
 </div>  
 
-5.apps in the Google Play Store must use the [Google Advertising ID][google_ad_id] to uniquely identify devices. To allow the Metrix SDK to use the Google Advertising ID, you must integrate the [Google Play Services][google_play_services]. If you haven't done this yet, follow these steps:
+5. apps in the Google Play Store must use the  [Google Advertising ID](https://support.google.com/googleplay/android-developer/answer/6048248?hl=en)  to uniquely identify devices. To allow the Metrix SDK to use the Google Advertising ID, you must integrate the  [Google Play Services](http://developer.android.com/google/play-services/setup.html). If you haven't done this yet, follow these steps:
+
 
   - Open the `build.gradle` file of your app and find the `dependencies` block. Add the following line:
 
