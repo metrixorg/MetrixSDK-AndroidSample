@@ -2,7 +2,7 @@
 [![CircleCI](https://circleci.com/gh/metrixorg/MetrixSDK-AndroidSample.svg?style=svg)](https://circleci.com/gh/metrixorg/MetrixSDK-AndroidSample)
 [ ![Download](https://api.bintray.com/packages/metrixorg/maven/metrix-sdk-android/images/download.svg) ](https://bintray.com/metrixorg/maven/metrix-sdk-android/_latestVersion)
 <div dir="rtl">
-    
+
 *این مطلب را در زبان‌های دیگر بخوانید: [فارسی](README.md), [English](README.en.md).*
 
 <h2>فهرست</h2>
@@ -56,6 +56,9 @@
 <div dir="ltr">
 
     implementation 'ir.metrix:metrix:0.8.2'
+   implementation 'com.android.installreferrer:installreferrer:1.0'
+
+
 </div>
 
 ۳. آپشن زیر را به بلاک `android` فایل `gradle` اپلیکیشن خود اضافه کنید:
@@ -143,6 +146,71 @@
 </div>
 
 (دو permission دوم اختیاری است)
+### ۶. تنظیمات google play referrer api:
+برای استفاده ازین ویژگی گوگل پلی باید کتابخانه زیر را اضافه کنید:
+ <div dir="ltr">
+
+    implementation 'com.android.installreferrer:installreferrer:1.0'
+
+</div>
+  همچنین رل زیر را باید به پروگارد خود اضافه کنید:
+  <div dir="ltr">
+
+    -keep public class com.android.installreferrer.** { *; }
+
+
+</div>
+
+### Install referrer
+
+برای افزایش دقت تشخیص اتریبیوشن نصب‌های اپلیکیشن شما، متریکس نیازمند اطلاعاتی درباره `referrer` نصب اپلیکیشن است. این اطلاعات می‌تواند از طریق سرویس ارائه شده توسط کتابخانه Google Play Referrer API و یا دریافت Google Play Store intent با استفاده از یک broadcast receiver به دست آید.
+نکته مهم: سرویس Google Play Referrer API به تازگی توسط گوگل و با هدف فراهم کردن دقیق یک راه امن و مطمئن برای دریافت اطلاعات `referrer` نصب ارائه شده و این قابلیت را به سرویس‌دهندگان پلتفرم‌های اتریبیوشن می‌دهد تا با تقلب click injection مبازه کنند. به همین دلیل متریکس نیز به همه توسعه‌دهندگان استفاده از این سرویس را توصیه می‌کند. در مقابل، روش Google Play Store intent یک مسیر با ضریب امنیت کمتر برای به‌دست آوردن اطلاعات `referrer `نصب ارائه می‌دهد که البته به صورت موازی با Google Play Referrer API به طور موقت پشتیبانی می‌شود،اما در آینده‌ای نزدیک منسوخ خواهد شد.
+
+### Google Play Store intent
+برای دریافت اینتنت `INSTALL_REFERRER` از گوگل پلی باید یک `broadcast receiver` آن را دریافت کند، اگر از `broadcast receiver` شخصی خود استفاده نمیکنید میتوانید با قرار دادن `receiver` زیر در تگ `application` فایل `AndroidManifest.xml` آن راکپچر کنید.
+  <div dir="ltr">
+
+    <receiver
+    android:name="ir.metrix.sdk.MetrixReferrerReceiver"
+    android:permission="android.permission.INSTALL_PACKAGES"
+    android:exported="true" >
+        <intent-filter>
+            <action android:name="com.android.vending.INSTALL_REFERRER" />
+        </intent-filter>
+    </receiver>
+
+</div>
+
+چنان چه چندین کتابخانه برای دریافت اینتنت `INSTALL_REFERRER` دارید میتوانید با قرار دادن کلاس شخصی خود در رسیور مانند زیر عمل کنید:
+  <div dir="ltr">
+
+    <receiver
+    android:name="com.your.app.InstallReceiver"
+    android:permission="android.permission.INSTALL_PACKAGES"
+    android:exported="true" >
+        <intent-filter>
+            <action android:name="com.android.vending.INSTALL_REFERRER" />
+        </intent-filter>
+    </receiver>
+
+</div>
+
+و کد کلاس `InstallReceiver` به صورت زیر میشود:
+  <div dir="ltr">
+
+    public class InstallReceiver extends BroadcastReceiver {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        // Metrix
+        new MetrixReferrerReceiver().onReceive(context, intent);
+
+        // Google Analytics
+        new CampaignTrackingReceiver().onReceive(context, intent);
+       }
+    }
+</div>
+
+
 
 <h2 id=integration>راه‌اندازی و پیاده‌سازی sdk در اپلیکیشن اندروید:</h2>
 
@@ -389,7 +457,7 @@
     @Override
       public void onAttributionChanged(AttributionModel attributionModel) {
           //TODO
-  }
+ }
     });
 </div>
 
