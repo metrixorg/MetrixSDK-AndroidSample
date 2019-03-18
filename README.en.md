@@ -252,7 +252,7 @@ You need to initialize the Metrix SDK in `onCreate` method of your `Application`
 4. In `onCreate` method of your `Application` class, initialize the Metrix according to the codes below:<br>  
 <div dir=ltr>  
   
-    import ir.metrix.analytics.Metrix;  
+    import ir.metrix.sdk.Metrix;  
   
     public class MyApplication extends Application {  
   
