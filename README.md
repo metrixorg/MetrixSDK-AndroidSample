@@ -257,7 +257,7 @@
 ۴. در متد `onCreate` کلاس `Application` خود، مطابق قطعه کد زیر sdk متریکس را `initialize` کنید:<br>
 <div dir=ltr>
 
-    import ir.metrix.analytics.Metrix;
+    import ir.metrix.sdk.Metrix;
 
     public class MyApplication extends Application {
 
