@@ -56,7 +56,7 @@
 2. Add the following library to the `dependencies` section of your `gradle` file:  
 <div dir="ltr">  
   
-    implementation 'ir.metrix:metrix:0.8.4'
+    implementation 'ir.metrix:metrix:0.8.5'
 
 </div>  
   
@@ -130,6 +130,8 @@
     -keep class * implements com.google.gson.JsonDeserializer
     #gms
     -keep class com.google.android.gms.** { *; }
+    
+    -dontwarn android.content.pm.PackageInfo
 
 
 </div>  
