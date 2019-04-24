@@ -4,7 +4,7 @@ import android.app.Application;
 
 import ir.metrix.sdk.Metrix;
 import ir.metrix.sdk.OnAttributionChangedListener;
-import ir.metrix.sdk.network.AttributionModel;
+import ir.metrix.sdk.network.model.AttributionModel;
 
 
 public class MetrixApplication extends Application {
