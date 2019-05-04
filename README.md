@@ -419,7 +419,7 @@
 
 <div dir=ltr>
 
-    Metrix.getInstance().newRevenue(“my_event_slug",12000,MetrixCurrency.IRR,"2");
+    Metrix.getInstance().newRevenue(“my_event_slug", 12000, MetrixCurrency.IRR, "2");
 </div>
 
 ورودی اول همان نامکی است که از داشبورد دریافت می‌کنید.<br>
