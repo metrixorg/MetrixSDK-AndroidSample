@@ -87,6 +87,7 @@
     -keep interface ir.metrix.sdk.NoProguard
     -keep class * implements ir.metrix.sdk.NoProguard { *; }
     -keep interface * extends ir.metrix.sdk.NoProguard { *; }
+    -keep class ir.metrix.sdk.network.model.** { *; }
 
     # retrofit
     # Retain service method parameters when optimizing.
