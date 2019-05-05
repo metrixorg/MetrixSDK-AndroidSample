@@ -58,7 +58,7 @@
 ۲. کتاب خانه زیر را در قسمت `dependencies` فایل `gradle` اپلیکیشن خود اضافه کنید:
 <div dir="ltr">
 
-    implementation 'ir.metrix:metrix:0.8.5'
+    implementation 'ir.metrix:metrix:0.9.0'
 
 </div>
 
