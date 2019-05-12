@@ -26,12 +26,13 @@
 <a style="padding-left:2em" href=#setFlushEventsOnClose>4.10. Flush all events</a><br>
 <a style="padding-left:2em" href=#getSessionNum>4.11. Current session number</a><br>
 <a style="padding-left:2em" href=#newEvent>4.12. Custom event</a><br>
-<a style="padding-left:2em" href=#setUserAttributes>4.13. Specify the default attributes for user</a><br>
-<a style="padding-left:2em" href=#setUserMetrics>4.14. Specify the default metrics for user</a><br>
-<a style="padding-left:2em" href=#setScreenFlowsAutoFill>4.15. Enable the process of storing the user flow</a><br>
-<a style="padding-left:2em" href=#isScreenFlowsAutoFill>4.16. Find out the value of screenFlow</a><br>
-<a style="padding-left:2em" href=#setAttributionListener>4.17. Get User attribution</a><br>
-<a style="padding-left:2em" href=#setDefaultTracker>4.18. Pre-installed trackers</a><br>
+<a style="padding-right:2em" href=#newRevenue>4.13. Track Revenue</a><br>
+<a style="padding-left:2em" href=#setUserAttributes>4.14. Specify the default attributes for user</a><br>
+<a style="padding-left:2em" href=#setUserMetrics>4.15. Specify the default metrics for user</a><br>
+<a style="padding-left:2em" href=#setScreenFlowsAutoFill>4.16. Enable the process of storing the user flow</a><br>
+<a style="padding-left:2em" href=#isScreenFlowsAutoFill>4.17. Find out the value of screenFlow</a><br>
+<a style="padding-left:2em" href=#setAttributionListener>4.18. Get User attribution</a><br>
+<a style="padding-left:2em" href=#setDefaultTracker>4.19. Pre-installed trackers</a><br>
   
   
   
@@ -56,7 +57,7 @@
 2. Add the following library to the `dependencies` section of your `gradle` file:  
 <div dir="ltr">  
   
-    implementation 'ir.metrix:metrix:0.8.5'
+    implementation 'ir.metrix:metrix:0.9.0'
 
 </div>  
   
@@ -85,7 +86,8 @@
     -keep interface ir.metrix.sdk.NoProguard  
     -keep class * implements ir.metrix.sdk.NoProguard { *; }  
     -keep interface * extends ir.metrix.sdk.NoProguard { *; }  
-  
+    -keep class ir.metrix.sdk.network.model.** { *; }
+
     # retrofit  
     # Retain service method parameters when optimizing.  
     -keepclassmembers,allowshrinking,allowobfuscation interface * {  
@@ -404,13 +406,18 @@ The input of this function is String.<br>
 The variables for the `newEvent` method are as follows:<br>  
 - <b>First variable:</b>The event slug which is String type and you get it from the Metrix dashboard.<br>  
 - <b>Second variable:</b> A Map `<String, String>` that specifies the attributes of an event.<br>  
-- <b>Third variable:</b> A Map `<String, Object>` that contains measurable metrics. Supported values in the MetriX are one of the following types:  
-    1. Integer  
-    2. Float  
-    3. Double  
-    4. Long  
-    5. Sting  
-    6. Boolean  
+- <b>Third variable:</b> A Map `<String, Double>` that contains measurable metrics.
+
+
+<h3 id=newRevenue>Track Revenue</h3>  
+
+If your users can generate revenue by tapping on advertisements or making in-app purchases, you can track those revenues too with events. Let's say a tap is worth 12000 Rial. You can also add an optional order ID to avoid tracking duplicate revenues. By doing so, the last ten order IDs will be remembered and revenue events with duplicate order IDs are skipped. This is especially useful for tracking in-app purchases. You can see an  example below.
+
+<div dir=ltr>
+
+    Metrix.getInstance().newRevenue("my_event_slug", 12000, MetrixCurrency.IRR, "{orderId}");
+</div>
+
   
 <h3 id=setUserAttributes>Specify the default attributes for user</h3>  
 Using this function, you can add arbitrary `Attributes` to all events of the user:<br>  
