@@ -57,7 +57,7 @@
 2. Add the following library to the `dependencies` section of your `gradle` file:  
 <div dir="ltr">  
   
-    implementation 'ir.metrix:metrix:0.9.0'
+    implementation 'ir.metrix:metrix:0.9.1'
 
 </div>  
   
