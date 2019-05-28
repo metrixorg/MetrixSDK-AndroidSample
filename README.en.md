@@ -276,7 +276,7 @@ Android gives developers the ability to run methods before the creation of any `
   
 <h2 id=methods>Additional features</h2>  
   
-<h3 id=session_event_description>Explain the concepts of event and session</h3>  
+<h3 id=session_event_description>Events and sessions</h3>  
 In each interaction that the user has with the app, Metrix sends this interaction to the server as an <b>event</b>. In Metrix, a <b>session</b> is a specific timeframe during which the user interacted with the app.<br>  
 There are three types of events in Metrix:<br>  
 <b>1. Session Start:</b> The time a session starts.<br>  
