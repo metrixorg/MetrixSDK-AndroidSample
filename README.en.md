@@ -177,14 +177,14 @@ In order to correctly attribute an install of your app to its source, Metrix nee
 
 <h3 id=google_play_referrer_api>Google Play Referrer API </h3>
 
-In order to support this in your app, please make sure have following line added to your  `build.gradle`  file:
+In order to support this in your app, please make sure you have the following line added to your  `build.gradle`  file:
 
 ```
 implementation 'com.android.installreferrer:installreferrer:1.0'
 
 ```
 
-Also, make sure that you have paid attention to the  Proguard  chapter and that you have added all the rules mentioned in it, especially the one needed for this feature:
+Also, make sure that you have paid attention to the Proguard chapter and that you have added all the rules mentioned in it, especially the one needed for this feature:
 
 ```
 -keep public class com.android.installreferrer.** { *; }
@@ -206,7 +206,7 @@ The Google Play Store  `INSTALL_REFERRER`  intent should be captured with a broa
 We use this broadcast receiver to retrieve the install referrer and pass it to our backend.
 
 If you are already using a multiple broadcast receiver for the  `INSTALL_REFERRER`  intent, follow below to add the Metrix broadcast receiver.
- you have implement your own broadcast receiver like this
+ If you have implemented your own broadcast receiver like this
  ```java
 public class InstallReceiver extends BroadcastReceiver {
     @Override
@@ -253,7 +253,7 @@ You need to initialize the Metrix SDK in `onCreate` method of your `Application`
   
 <img src="https://storage.backtory.com/tapsell-server/metrix/doc/screenshots/Metrix-Application-Manifest.png">  
   
-4. In `onCreate` method of your `Application` class, initialize the Metrix according to the codes below:<br>  
+4. In `onCreate` method of your `Application` class, initialize Metrix according to the codes below:<br>  
 <div dir=ltr>  
   
     import ir.metrix.sdk.Metrix;  
@@ -268,26 +268,26 @@ You need to initialize the Metrix SDK in `onCreate` method of your `Application`
     }  
 </div>  
   
-Replace `APP_ID` with your application id. You can find that in your Metrix's dashboard.  
+Replace `APP_ID` with your application id. You can find that in your Metrix dashboard.  
   
 <h3 id=about_application_class>About the application class and initialization in this class</h3>  
   
-The Android gives developers the ability to run methods before the creation of any `activity` in the application class. Because counting the `session`, gathering `screen-flows` between `activities` and many other features of the SDK required them to work properly.  
+Android gives developers the ability to run methods before the creation of any `activity` in the application class. Because counting the `session`, gathering `screen-flows` between `activities` and many other features of the SDK required them to work properly.  
   
 <h2 id=methods>Additional features</h2>  
   
 <h3 id=session_event_description>Explain the concepts of event and session</h3>  
-In each interaction that the user has with the app, the Metrix sends this interaction to the server as a <b>event</b>. In Metrix, <b>session</b> means that a specific timeframe that the user interacts with the app.<br>  
-There are three types of events in the Metrix:<br>  
-<b>1. Session Start:</b> The time of start a session.<br>  
-<b>2. Session Stop:</b> The time of stop a session.<br>  
+In each interaction that the user has with the app, Metrix sends this interaction to the server as an <b>event</b>. In Metrix, a <b>session</b> is a specific timeframe during which the user interacted with the app.<br>  
+There are three types of events in Metrix:<br>  
+<b>1. Session Start:</b> The time a session starts.<br>  
+<b>2. Session Stop:</b> The time of a session ends.<br>  
 <b>3. Custom:</b> Depending on your application logic and the interactiion that the user has with your app, you can create and send custom events as below:<br>  
   
 <b>Tip:</b> To use library facilities and call the methods provided by the SDK, you must get `MetrixClient` using `getInstance` and then choose your desired method.<br>  
 <br>  
   
 <h3 id=enableLocationListening>Enable location listening</h3>  
-You can declare to Metrix to send information about the location of the user using the following functions. (In order to these method work properly, the optional permissions must be enabled) <br>  
+Using the following functions, you can inform Metrix that you wish to send information about the location of the user (In order for these methods to work properly, the optional permissions explained earlier must be enabled). <br>
 <div dir=ltr>  
   
     Metrix.getInstance().enableLocationListening();  
@@ -296,7 +296,7 @@ You can declare to Metrix to send information about the location of the user usi
 </div>  
   
 <h3 id=setEventUploadThreshold>Limitation in number of events to upload</h3>  
-Using the following function, you can specify that each time the number of your buffered events reaches the threshold, SDK should send them to the server:<br>  
+Using the following function, you can specify that each time the number of your buffered events reaches the threshold, the Metrix SDK should send them to the server:<br>  
 <div dir=ltr>  
   
     Metrix.getInstance().setEventUploadThreshold(50);  
@@ -304,7 +304,7 @@ Using the following function, you can specify that each time the number of your 
 (The default value is 30 events.)<br>  
   
 <h3 id=setEventUploadMaxBatchSize>Limitation in number of events to send per request</h3>  
-Using this function, you can specify the maximum number of outcoming events per request as shown below:<br>  
+Using this function, you can specify the maximum number of out-going events per request as shown below:<br>  
 <div dir=ltr>  
   
     Metrix.getInstance().setEventUploadMaxBatchSize(100);  
@@ -312,7 +312,7 @@ Using this function, you can specify the maximum number of outcoming events per 
 (The default value is 100 events.)<br>  
   
 <h3 id=setEventMaxCount>Limitation in number of events to buffer on the device</h3>  
-Using the following function, you can specify how much the maximum number of buffered events is in the SDK (for example, if the user device lost its internet connection, the events will be stored in the library as the amount of you specify) and if the number of buffered events in the library pass this amount. Old events are not kept and destroyed by SDK:<br>  
+Using the following function, you can specify the maximum number of events that are buffered in the SDK (for example, if the user's device loses internet connection, the events will be buffered in the library until there is a chance to send the events and empty the buffer) and if the number of buffered events in the library passes this amount, old events are destroyed by SDK to make space for new events:<br>  
 <div dir=ltr>  
   
     Metrix.getInstance().setEventMaxCount(1000);  
@@ -320,7 +320,7 @@ Using the following function, you can specify how much the maximum number of buf
 (The default value is 100 events.)<br>  
   
 <h3 id=setEventUploadPeriodMillis>The time interval for sending events</h3>  
-By using this function, you can specify that how long the request for sending events should be sent: <br>  
+By using this function, you can specify the timeout period of requests for sending events: <br>  
 <div dir=ltr>  
   
     Metrix.getInstance().setEventUploadPeriodMillis(30000);  
@@ -328,7 +328,7 @@ By using this function, you can specify that how long the request for sending ev
 (The default value is 30 seconds.)<br>  
   
 <h3 id=setSessionTimeoutMillis>The session timeout</h3>  
-Using this function, you can specify the limit of session lengthes in your application. For example, if the value of this value is 10,000, if the user interacts with the application in 70 seconds, the Metrix calculates this interaction in seven sessions.<br>  
+Using this function, you can specify the limit of session length in your application in unit of miliseconds. For example, if this value is 10,000 and the user interacts with the application for 70 seconds, Metrix calculates this interaction as seven sessions.<br>  
 <div dir=ltr>  
   
     Metrix.getInstance().setSessionTimeoutMillis(1800000);  
@@ -336,7 +336,7 @@ Using this function, you can specify the limit of session lengthes in your appli
 (The default value is 30 minutes.)<br>  
 
 <h3 id=enableLogging>Log management</h3>  
-Note that setting the value of this value to `false` during the release of your application:<br>  
+Note that you should set this value to `false` before the release of your application:<br>  
 <div dir=ltr>  
   
     Metrix.getInstance().enableLogging(true);  
@@ -354,7 +354,7 @@ Using this function, you can specify what level of logs to be printed in `logcat
 (The default value is `Log.INFO`.)<br>  
 
 <h3 id=setFlushEventsOnClose>Flush all events</h3>  
-Using this function, you can specify that when the application is closed, all events buffered in the device, should be sent or not:  
+Using this function, you can specify wether when the application is closed, all events buffered in the device, should be sent or not:  
 <br>  
 <div dir=ltr>  
   
@@ -363,13 +363,13 @@ Using this function, you can specify that when the application is closed, all ev
 (The default value is true.)<br>  
   
 <h3 id=getSessionNum>Current session number</h3>  
-By this function, you can find the current session number:<br>  
+Using this function, you can find the current session number:<br>  
 <div dir=ltr>  
   
     Metrix.getInstance().getSessionNum();  
 </div>  
   
-<h3 id=newEvent>Custom event</h3>  
+<h3 id=newEvent>Custom events</h3>  
   
 You can use Metrix to track any event in your app. Suppose you want to track every tap on a button. You would have to create a new event slug in the Events Management section of your dashboard. Let's say that event slug is `abc123`. In your button's onClick method you could then add the following lines to track the click.  
 <br>  
@@ -381,10 +381,10 @@ You can call this function in two ways:<br>
     Metrix.getInstance().newEvent(“abc123");  
 </div>  
   
-The input of this function is String.<br>  
+The input of this function is a String.<br>  
 <br>  
   
-2. Create a custom event with a specific numbers of attributes and metrics, for example, suppose you want to create a custom event in an online purchase program:<br>  
+2. Create a custom event with a specific number of attributes and metrics, for example, suppose you want to create a custom event in an online purchase program:<br>  
   
 <div dir=ltr>  
   
@@ -404,14 +404,14 @@ The input of this function is String.<br>
 </div>  
   
 The variables for the `newEvent` method are as follows:<br>  
-- <b>First variable:</b>The event slug which is String type and you get it from the Metrix dashboard.<br>  
+- <b>First variable:</b>The event slug which is a String you receive from the Metrix dashboard.<br>  
 - <b>Second variable:</b> A Map `<String, String>` that specifies the attributes of an event.<br>  
 - <b>Third variable:</b> A Map `<String, Double>` that contains measurable metrics.
 
 
 <h3 id=newRevenue>Track Revenue</h3>  
 
-If your users can generate revenue by tapping on advertisements or making in-app purchases, you can track those revenues too with events. Let's say a tap is worth 12000 Rial. You can also add an optional order ID to avoid tracking duplicate revenues. By doing so, the last ten order IDs will be remembered and revenue events with duplicate order IDs are skipped. This is especially useful for tracking in-app purchases. You can see an  example below.
+If your users can generate revenue by tapping on advertisements or making in-app purchases, you can track those revenues too with events. You can also add an optional order ID to avoid tracking duplicate revenues. By doing so, the last ten order IDs will be remembered and revenue events with duplicate order IDs are skipped. This is especially useful for tracking in-app purchases. You can see an example below where a tap is worth 12,000 IRR:
 
 <div dir=ltr>
 
@@ -442,7 +442,7 @@ Using this function, you can add arbitrary `Metrics` to all events of the user:<
   
 <h3 id=setScreenFlowsAutoFill>Enable the process of storing the user flow</h3>  
   
-Using this function, you can inform the Metrix to gather information about user's flow in each `Activity`/`Fragment` and these details should be stored automatically:<br>  
+Using this function, you can inform Metrix to gather information about user's flow in each `Activity`/`Fragment` and these details should be stored automatically:<br>  
 <div dir=ltr>  
   
     Metrix.getInstance().setScreenFlowsAutoFill(true);  
@@ -451,7 +451,7 @@ Using this function, you can inform the Metrix to gather information about user'
   
 <h3 id=isScreenFlowsAutoFill>Find out the value of screenFlow</h3>  
 
-Using this function, you can see that what the `screenFlow` value in the Metrix is:<br>
+Using this function, you can read the `screenFlow` value in Metrix:<br>
 <div dir=ltr>  
   
     Metrix.getInstance().isScreenFlowsAutoFill();  
@@ -459,7 +459,7 @@ Using this function, you can see that what the `screenFlow` value in the Metrix 
   
 <h3 id=setAttributionListener>Get User attribution</h3>  
 
-In case you want to access info about your user's current attribution when ever you need it, you can make a call to following method of the Metrix instance: <br>
+In case you want to access info about your user's current attribution when ever you need it, you can make a call to the following method of the Metrix instance: <br>
 <div dir=ltr>  
   
     Metrix.getInstance().setOnAttributionChangedListener(new OnAttributionChangedListener() {  
@@ -494,7 +494,7 @@ Here is a quick summary of `AttributionModel` properties: <br>
   
 <h3 id=setDefaultTracker>Pre-installed trackers</h3>  
   
-If you want to use the Metrix SDK to recognize users whose devices came with your app pre-installed, open your app delegate and set the default tracker of your config. Replace `trackerToken` with the tracker token you created in dashboard. Please note that the Dashboard displays a tracker URL (including http://tracker.metrix.ir/). In your source code, you should specify only the six-character token and not the entire URL. <br>  
+If you want to use the Metrix SDK to recognize users whose devices came with your app pre-installed, open your app delegate and set the default tracker of your config. Replace `trackerToken` with the tracker token you created in the dashboard. Please note that the Dashboard displays a tracker URL (including http://tracker.metrix.ir/). In your source code, you should specify only the six-character token and not the entire URL. <br>  
 <div dir=ltr>  
   
     Metrix.getInstance().setDefaultTracker(trackerToken);  
