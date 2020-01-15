@@ -1,7 +1,7 @@
 version: 2
 defaults: &defaults
   docker:
-    - image: metrixorg/gitlab-ci-android:v1.0.0
+    - image: tapsellorg/android-sdk:v3.1.0
 
 jobs:
 
