@@ -39,5 +39,5 @@ dependencies {
     implementation 'com.android.installreferrer:installreferrer:1.1'
     implementation 'com.google.android.gms:play-services-analytics:17.0.0'
 
-    implementation 'ir.metrix:metrix:0.14.6'
+    implementation 'ir.metrix:metrix:0.14.7'
 }
