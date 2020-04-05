@@ -20,7 +20,6 @@ public class MetrixApplication extends Application {
             @Override
             public void onAttributionChanged(AttributionModel attributionModel) {
 
-
             }
         });
 
