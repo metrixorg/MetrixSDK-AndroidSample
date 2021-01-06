@@ -21,6 +21,11 @@
         </activity>
 
         <activity android:name=".SecondActivity"/>
+
+        <meta-data
+            android:name="metrix_appId"
+            android:value="ilhskoifzdmyhhk" />
+
     </application>
 
 </manifest>

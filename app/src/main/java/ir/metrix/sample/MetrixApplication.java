@@ -1,28 +1,42 @@
 package ir.metrix.sample;
 
 import android.app.Application;
+import android.util.Log;
 
-import ir.metrix.sdk.Metrix;
-import ir.metrix.sdk.MetrixConfig;
-import ir.metrix.sdk.OnAttributionChangedListener;
-import ir.metrix.sdk.network.model.AttributionModel;
+import java.util.HashMap;
+import java.util.Map;
 
+import ir.metrix.AttributionData;
+import ir.metrix.Metrix;
+import ir.metrix.OnAttributionChangeListener;
+import ir.metrix.UserIdListener;
 
 public class MetrixApplication extends Application {
+
+    private static final String TAG = "MetrixApplication";
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        MetrixConfig metrixConfig = new MetrixConfig(this, BuildConfig.METRIX_KEY);
-        metrixConfig.setScreenFlowsAutoFill(true);
-        metrixConfig.setOnAttributionChangedListener(new OnAttributionChangedListener() {
-            @Override
-            public void onAttributionChanged(AttributionModel attributionModel) {
+        Metrix.setStore("GooglePlay");
 
+        Map<String, String> userAttributes = new HashMap<>();
+        userAttributes.put("phoneNumber", "09121111111");
+        Metrix.addUserAttributes(userAttributes);
+
+        Metrix.setUserIdListener(new UserIdListener() {
+            @Override
+            public void onUserIdReceived(String id) {
+                Log.d(TAG, "onUserIdReceived: Metrix userId: " + id);
             }
         });
 
-        Metrix.onCreate(metrixConfig);
+        Metrix.setOnAttributionChangedListener(new OnAttributionChangeListener() {
+            @Override
+            public void onAttributionChanged(AttributionData attributionData) {
+                Log.d(TAG, "onAttributionChanged: userAttributionStatus: " + attributionData.attributionStatus);
+            }
+        });
     }
 }

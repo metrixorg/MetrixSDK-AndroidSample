@@ -3,10 +3,12 @@ package ir.metrix.sample;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import ir.metrix.Metrix;
+
 import android.view.View;
 
-import ir.metrix.sdk.Metrix;
-
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -15,7 +17,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Metrix.getInstance().newEvent("Create Main Activity");
+        Map<String, String> attributes = new HashMap<>();
+        attributes.put("Activity", "MainActivity");
+        Metrix.newEvent("ilion", attributes);
 
         View btGo = findViewById(R.id.btGo);
         btGo.setOnClickListener(this);

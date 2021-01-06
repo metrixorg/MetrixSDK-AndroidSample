@@ -1,9 +1,12 @@
 package ir.metrix.sample;
 
 import androidx.appcompat.app.AppCompatActivity;
+import ir.metrix.Metrix;
+
 import android.os.Bundle;
 
-import ir.metrix.sdk.Metrix;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -12,6 +15,8 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        Metrix.getInstance().newEvent("Create Second Activity");
+        Map<String, String> attributes = new HashMap<>();
+        attributes.put("Activity", "SecondActivity");
+        Metrix.newEvent("ilion", attributes);
     }
 }
