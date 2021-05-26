@@ -17,7 +17,6 @@ android {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            applicationIdSuffix ".debug"
         }
 
         release {
@@ -37,5 +36,5 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    implementation 'ir.metrix:metrix:1.0.0'
+    implementation 'ir.metrix:metrix:1.1.2'
 }

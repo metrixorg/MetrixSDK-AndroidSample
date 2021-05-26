@@ -26,6 +26,10 @@
             android:name="metrix_appId"
             android:value="ilhskoifzdmyhhk" />
 
+        <meta-data
+            android:name="metrix_storeName"
+            android:value="GooglePlay" />
+
     </application>
 
 </manifest>
