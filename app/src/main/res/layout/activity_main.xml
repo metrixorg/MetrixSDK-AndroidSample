@@ -1,13 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/mainTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Metrix Sample Application"
+        android:textSize="20sp"
+        android:layout_marginBottom="130dp"
+        app:layout_constraintBottom_toTopOf="@+id/sessionIdTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/sessionIdTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Session ID: "
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toTopOf="@+id/sessionNumTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainTV" />
+
+    <TextView
+        android:id="@+id/sessionNumTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Session Number: "
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/userIdTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sessionIdTV" />
+
+    <TextView
+        android:id="@+id/userIdTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User ID: "
+        android:layout_marginBottom="130dp"
+        app:layout_constraintBottom_toTopOf="@+id/sendEventBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sessionNumTV" />
+
     <Button
-        android:id="@+id/btGo"
+        android:id="@+id/sendEventBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="GO" />
+        android:text="Send Event"
+        app:layout_constraintBottom_toTopOf="@+id/sendRevenueBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userIdTV" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/sendRevenueBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Send Revenue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sendEventBTN" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
