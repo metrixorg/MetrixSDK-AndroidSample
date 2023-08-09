@@ -1,5 +1,6 @@
 package ir.metrix.sample
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -36,6 +37,10 @@ class MainActivity : AppCompatActivity() {
                 Log.d("MetrixSample", "onAttributionChanged: userAttributionStatus: ${attributionData.attributionStatus}")
             }
         })
+
+        findViewById<Button>(R.id.openWebViewBTN).setOnClickListener {
+            startActivity(Intent(this, WebViewActivity::class.java))
+        }
 
         findViewById<Button>(R.id.sendEventBTN).setOnClickListener {
             Metrix.newEvent("lbuoa", mapOf("name" to "Ali"))

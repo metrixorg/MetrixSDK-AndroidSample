@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	    <style type='text/css'>
+            html { font-family:Helvetica; color:#222; }
+            h1 { color:steelblue; font-size:24px; margin-top:24px; }
+            button { margin:0 3px 10px; font-size:12px; }
+            .logLine { border-bottom:1px solid #ccc; padding:4px 2px; font-family:courier; font-size:11px; }
+	    </style>
+        <script type="text/javascript" src="metrix.js"></script>
+    </head>
+    <body>
+        <h1 style="width:400px;height:35px;text-align:center;">Metrix Web View App</h1>
+        <script language="javascript">
+            window.onerror = function(err) { }
+
+		    function attributionCallback(attribution) {
+                alert('Status = ' + attribution.attributionStatus + '\n' +
+                      'Tracker Token = ' + attribution.trackerToken + '\n' +
+                      'Ad = ' + attribution.acquisitionAd + '\n' +
+                      'AdSet = ' + attribution.acquisitionAdSet + '\n' +
+                      'Campaign = ' + attribution.acquisitionCampaign + '\n' +
+                      'Source = ' + attribution.acquisitionSource);
+            }
+
+            function deferredDeeplinkCallback(deferredDeeplink) {
+                alert('Deferred deeplink content:\n' + deferredDeeplink);
+            }
+
+            function userIdCallback(userId) {
+                alert('UserId:\n' + userId);
+            }
+
+            function sessionIdCallback(sessionId) {
+                alert('SessionId:\n' + sessionId);
+            }
+
+            function sessionNumberCallback(sessionNumber) {
+                alert('SessionNumber:\n' + sessionNumber);
+            }
+
+            Metrix.setOnAttributionChangedListener(attributionCallback);
+
+            Metrix.shouldLaunchDeeplink = true;
+            Metrix.setOnDeeplinkResponseListener(deferredDeeplinkCallback);
+
+            Metrix.setUserIdListener(userIdCallback);
+
+            Metrix.setSessionIdListener(sessionIdCallback);
+            Metrix.setSessionNumberListener(sessionNumberCallback);
+
+            Metrix.setPushToken('pushToken');
+
+            Metrix.addUserAttributes({
+                "name": "hisName"
+            });
+
+            window.onload = function() {
+                var btnTrackSimpleEvent = document.getElementById('btnTrackSimpleEvent')
+                btnTrackSimpleEvent.onclick = function(e) {
+                    e.preventDefault();
+                    Metrix.newEvent('lbuoa');
+                }
+
+                var btnTrackRevenueEvent = document.getElementById('btnTrackRevenueEvent')
+                btnTrackRevenueEvent.onclick = function(e) {
+                    e.preventDefault()
+                    Metrix.newRevenue('perzu', 2500.5, 1);
+                }
+
+                var btnTrackCallbackEvent = document.getElementById('btnTrackCustomEvent')
+                btnTrackCallbackEvent.onclick = function(e) {
+                    e.preventDefault();
+                    Metrix.newEvent('lbuoa', {
+                        "first": "second"
+                    });
+                }
+            }
+        </script>
+        <div id='buttons'>
+            <div style="width:400px;height:35px;text-align:center;">
+                <button id='btnTrackSimpleEvent'>Track Simple event</button>
+            </div>
+            <div style="width:400px;height:35px;text-align:center;">
+                <button id='btnTrackRevenueEvent'>Track Revenue event</button>
+            </div>
+            <div style="width:400px;height:35px;text-align:center;">
+                <button id='btnTrackCustomEvent'>Track Custom event</button>
+            </div>
+        </div>
+    </body>
+</html>
