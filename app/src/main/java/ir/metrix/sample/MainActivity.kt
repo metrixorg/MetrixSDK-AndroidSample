@@ -1,40 +1,49 @@
 package ir.metrix.sample
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
-import ir.metrix.AttributionData
-import ir.metrix.Metrix
-import ir.metrix.OnAttributionChangeListener
-import ir.metrix.UserIdListener
-import ir.metrix.messaging.RevenueCurrency
-import ir.metrix.session.SessionIdListener
-import ir.metrix.session.SessionNumberListener
+import androidx.appcompat.app.AppCompatActivity
+import ir.metrix.analytics.MetrixAnalytics
+import ir.metrix.analytics.SessionIdListener
+import ir.metrix.analytics.SessionNumberListener
+import ir.metrix.analytics.messaging.RevenueCurrency
+import ir.metrix.attribution.AttributionData
+import ir.metrix.attribution.MetrixAttribution
+import ir.metrix.attribution.OnAttributionChangeListener
+import ir.metrix.attribution.UserIdListener
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Optional
-        Metrix.addUserAttributes(mapOf("phoneNumber" to "09121111111"))
+        // Need to receive notification
+        MetrixAnalytics.User.setUserCustomId("sample")
 
         // Optional
-        Metrix.setUserIdListener(object : UserIdListener {
-            override fun onUserIdReceived(userId: String) {
-                // Replace with your logic
-                findViewById<TextView>(R.id.userIdTV).text = "User ID: $userId"
+        MetrixAnalytics.User.setCustomAttribute("phoneNumber", "09121111111")
+
+        // Optional
+        MetrixAttribution.setUserIdListener {
+            object : UserIdListener {
+                override fun onUserIdReceived(userId: String) {
+                    // Replace with your logic
+                    findViewById<TextView>(R.id.userIdTV).text = "User ID: $userId"
+                }
             }
-        })
+        }
 
         // Optional
-        Metrix.setOnAttributionChangedListener(object : OnAttributionChangeListener {
+        MetrixAttribution.setOnAttributionChangedListener(object : OnAttributionChangeListener {
             override fun onAttributionChanged(attributionData: AttributionData) {
                 // Replace with your logic
-                Log.d("MetrixSample", "onAttributionChanged: userAttributionStatus: ${attributionData.attributionStatus}")
+                Log.d(
+                    "MetrixSample",
+                    "onAttributionChanged: userAttributionStatus: ${attributionData.attributionStatus}"
+                )
             }
         })
 
@@ -43,10 +52,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.sendEventBTN).setOnClickListener {
-            Metrix.newEvent("lbuoa", mapOf("name" to "Ali"))
+            MetrixAnalytics.newEvent("lbuoa", mapOf("name" to "Ali"))
         }
         findViewById<Button>(R.id.sendRevenueBTN).setOnClickListener {
-            Metrix.newRevenue("ykwyp", 250000.0, RevenueCurrency.IRR)
+            MetrixAnalytics.newRevenue("ykwyp", 250000.0, RevenueCurrency.IRR)
         }
     }
 
@@ -54,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
 
         // Optional
-        Metrix.setSessionIdListener(object : SessionIdListener {
+        MetrixAnalytics.setSessionIdListener(object : SessionIdListener {
             override fun onSessionIdChanged(sessionId: String) {
                 // Replace with your logic
                 findViewById<TextView>(R.id.sessionIdTV).text = "Session ID: $sessionId"
@@ -62,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         // Optional
-        Metrix.setSessionNumberListener(object : SessionNumberListener {
+        MetrixAnalytics.setSessionNumberListener(object : SessionNumberListener {
             override fun onSessionNumberChanged(sessionNumber: Int) {
                 // Replace with your logic
                 findViewById<TextView>(R.id.sessionNumTV).text = "Session Number: $sessionNumber"

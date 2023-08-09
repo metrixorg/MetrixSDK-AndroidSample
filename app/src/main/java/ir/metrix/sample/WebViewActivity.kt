@@ -5,7 +5,8 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
-import ir.metrix.webbridge.MetrixBridge
+import ir.metrix.analytics.webbridge.MetrixAnalyticsBridge
+import ir.metrix.attribution.webbridge.MetrixAttributionBridge
 
 class WebViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +19,8 @@ class WebViewActivity : AppCompatActivity() {
         webView.webChromeClient = WebChromeClient()
         webView.webViewClient = WebViewClient()
 
-        MetrixBridge.registerAndGetInstance(webView)
+        MetrixAttributionBridge.registerAndGetInstance(webView)
+        MetrixAnalyticsBridge.registerAndGetInstance(webView)
         try {
             webView.loadUrl("file:///android_asset/MetrixExample-WebView.html")
         } catch (e: Exception) {
@@ -27,7 +29,8 @@ class WebViewActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        MetrixBridge.unregister()
+        MetrixAttributionBridge.unregister()
+        MetrixAnalyticsBridge.unregister()
         super.onDestroy()
     }
 }

@@ -22,14 +22,25 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".WebViewActivity"
-            android:exported="true" />
+        <activity android:name=".WebViewActivity" />
+
+        <service
+            android:name=".CustomFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
         <meta-data
-            android:name="metrix_appId"
+            android:name="ir.metrix.APPLICATION_ID"
             android:value="zcmwmxbkmuodelu" />
-
+        <meta-data
+            android:name="ir.metrix.API_KEY"
+            android:value="a15f782d-0d20-4159-9c5e-23f246e857e6" />
+        <meta-data
+            android:name="ir.metrix.SIGNATURE"
+            android:value="pmHhXFAuXDRYPZO6AQegjJ5khzTyLpP1MLO4AZacNSKpOxzsHk8lEhuxCTdeZHGfKCx1JIJerjFgAwQ6VGy0UDrpKfJnMAurnS5sboGfUuWuWRHkIBm2Cd0=" />
         <meta-data
             android:name="metrix_storeName"
             android:value="GooglePlay" />

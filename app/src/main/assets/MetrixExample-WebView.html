@@ -8,10 +8,11 @@
             button { margin:0 3px 10px; font-size:12px; }
             .logLine { border-bottom:1px solid #ccc; padding:4px 2px; font-family:courier; font-size:11px; }
 	    </style>
-        <script type="text/javascript" src="metrix.js"></script>
+        <script type="text/javascript" src="metrix_attribution.js"></script>
+        <script type="text/javascript" src="metrix_analytics.js"></script>
     </head>
     <body>
-        <h1 style="width:400px;height:35px;text-align:center;">Metrix Web View App</h1>
+        <h1 style="width:400px;height:35px;text-align:center;">Metrix Web View</h1>
         <script language="javascript">
             window.onerror = function(err) { }
 
@@ -40,19 +41,19 @@
                 alert('SessionNumber:\n' + sessionNumber);
             }
 
-            Metrix.setOnAttributionChangedListener(attributionCallback);
+            MetrixAttribution.setOnAttributionChangedListener(attributionCallback);
 
-            Metrix.shouldLaunchDeeplink = true;
-            Metrix.setOnDeeplinkResponseListener(deferredDeeplinkCallback);
+            MetrixAttribution.shouldLaunchDeeplink = true;
+            MetrixAttribution.setOnDeeplinkResponseListener(deferredDeeplinkCallback);
 
-            Metrix.setUserIdListener(userIdCallback);
+            MetrixAttribution.setUserIdListener(userIdCallback);
 
-            Metrix.setSessionIdListener(sessionIdCallback);
-            Metrix.setSessionNumberListener(sessionNumberCallback);
+            MetrixAnalytics.setSessionIdListener(sessionIdCallback);
+            MetrixAnalytics.setSessionNumberListener(sessionNumberCallback);
 
-            Metrix.setPushToken('pushToken');
+            MetrixAttribution.setPushToken('pushToken');
 
-            Metrix.addUserAttributes({
+            MetrixAnalytics.setUserAttributes({
                 "name": "hisName"
             });
 
@@ -60,19 +61,19 @@
                 var btnTrackSimpleEvent = document.getElementById('btnTrackSimpleEvent')
                 btnTrackSimpleEvent.onclick = function(e) {
                     e.preventDefault();
-                    Metrix.newEvent('lbuoa');
+                    MetrixAnalytics.newEvent('lbuoa');
                 }
 
                 var btnTrackRevenueEvent = document.getElementById('btnTrackRevenueEvent')
                 btnTrackRevenueEvent.onclick = function(e) {
                     e.preventDefault()
-                    Metrix.newRevenue('perzu', 2500.5, 1);
+                    MetrixAnalytics.newRevenue('perzu', 2500.5, 1);
                 }
 
                 var btnTrackCallbackEvent = document.getElementById('btnTrackCustomEvent')
                 btnTrackCallbackEvent.onclick = function(e) {
                     e.preventDefault();
-                    Metrix.newEvent('lbuoa', {
+                    MetrixAnalytics.newEvent('lbuoa', {
                         "first": "second"
                     });
                 }
