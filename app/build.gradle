@@ -36,9 +36,9 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
 
     // Metrix dependencies
-    implementation 'ir.metrix.attribution:metrix:2.0.0.beta62'
-    implementation 'ir.metrix.analytics:metrix:2.0.0.beta62'
-    implementation 'ir.metrix.notification:metrix:2.0.0.beta62'
+    implementation 'ir.metrix.attribution:metrix:2.0.0'
+    implementation 'ir.metrix.analytics:metrix:2.0.0'
+    implementation 'ir.metrix.notification:metrix:2.0.0'
 
     implementation platform('com.google.firebase:firebase-bom:30.4.1') {
         exclude group: 'com.google.firebase', module: 'firebase-messaging'
