@@ -11,7 +11,7 @@ material = "1.11.0"
 constraintlayout = "2.1.4"
 navigationFragmentKtx = "2.6.0"
 navigationUiKtx = "2.6.0"
-metrix = "2.1.1"
+metrix = "2.2.8"
 metrixLegacy = "1.6.0"
 
 [libraries]
