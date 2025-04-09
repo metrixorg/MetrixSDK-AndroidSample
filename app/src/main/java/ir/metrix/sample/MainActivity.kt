@@ -52,10 +52,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.sendEventBTN).setOnClickListener {
-            MetrixAnalytics.newEvent("lbuoa", mapOf("name" to "Ali"))
+            MetrixAnalytics.newEventByName(
+                "androidSampleTest",
+                mapOf(
+                    "name" to "Ali",
+                    "json" to mapOf("id" to "18y239uehwjkfdjhyu")
+                )
+            )
         }
         findViewById<Button>(R.id.sendRevenueBTN).setOnClickListener {
-            MetrixAnalytics.newRevenue("ykwyp", 250000.0, RevenueCurrency.IRR)
+            MetrixAnalytics.newRevenueByName(
+                "androidSampleTestRevenue",
+                250000.0,
+                RevenueCurrency.IRR
+            )
         }
     }
 
