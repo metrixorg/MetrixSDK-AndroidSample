@@ -41,6 +41,9 @@ android {
         jniLibs {
             excludes += "/lib/**/libconscrypt_jni.so"
         }
+        resources {
+            excludes += "META-INF/kotlinx_coroutines_core.version"
+        }
     }
 }
 

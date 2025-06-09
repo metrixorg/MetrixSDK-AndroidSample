@@ -26,7 +26,7 @@
         <activity android:name=".WebViewActivity" />
 
         <service
-            android:name=".CustomFirebaseMessagingService"
+            android:name="ir.metrix.notification.receivers.MetrixFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -39,8 +39,5 @@
         <meta-data
             android:name="ir.metrix.API_KEY"
             android:value="a15f782d-0d20-4159-9c5e-23f246e857e6" />
-        <meta-data
-            android:name="metrix_storeName"
-            android:value="GooglePlay" />
     </application>
 </manifest>
